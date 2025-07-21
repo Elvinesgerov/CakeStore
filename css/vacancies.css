@@ -1,0 +1,491 @@
+/* ============================================ Font Style ==================================== */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* ============================================ Font Style ==================================== */
+
+/* ============================================ Began WebSite ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden
+}
+
+/* ============================================ Began WebSite ==================================== */
+
+
+/* ============================================ Scroll CSS ======================================= */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1A2255;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #313B90;
+}
+
+.generally_scrol {
+    border: none;
+    border-radius: 15px;
+    width: 4%;
+    height: 56px;
+    background-color: #313B90;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 15;
+    font-size: 1.8rem;
+    right: 15px;
+    justify-content: center;
+    top: 90%;
+    color: white;
+    display: none;
+}
+
+/* ============================================ Scroll CSS ======================================= */
+
+/* ============================================ Dark Mood ======================================== */
+.darkmood {
+    width: 90px;
+    height: 40px;
+    background-color: #313B90;
+    color: white;
+    border-radius: 15px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: 0.7s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.darkmood:hover {
+    background-color: #33BCD0;
+    color: white;
+}
+
+.ri-moon-line,
+.ri-sun-line {
+    font-size: 1.3rem;
+}
+
+/* ============================================ Dark Mood ======================================== */
+
+/* ============================================ Snow CSS ========================================== */
+#snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+    width: 100%;
+}
+
+@keyframes animation {
+    to {
+        transform: translateY(250vh);
+    }
+
+}
+
+.snow {
+    position: absolute;
+    top: -10px;
+    font-size: 1em;
+    user-select: none;
+    animation: animation linear infinite;
+}
+
+/* ============================================ Snow CSS ========================================== */
+
+
+/* ============================================ Header CSS ======================================== */
+.header_container {
+    width: 100%;
+    height: 150px;
+    background-color: #1A2255;
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    gap: 80px;
+    /* position: fixed; */
+}
+
+.header_title {
+    display: flex;
+    gap: 75px;
+}
+
+.header_title a {
+    text-decoration: none;
+    color: aliceblue;
+    transition: 0.7s;
+}
+
+.header_title a:hover {
+    color: #33BCD0;
+}
+
+.change {
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #313B90;
+    font-style: italic;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 47px;
+    transition: 0.7s;
+}
+
+.change:hover {
+    background-color: #33BCD0;
+    color: white !important;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.ri-shopping-cart-2-fill {
+    font-size: 1.8rem;
+}
+
+/* ============================================ Header CSS ======================================== */
+
+
+/* ============================================ Main CSS ========================================== */
+main {
+    background: radial-gradient(circle, #4e44b7 0, #0a2f5b 100%);
+    margin-top: -35px;
+    padding-top: 30px;
+}
+
+h2 {
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    font-size: 38px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+
+.border {
+    background-image: linear-gradient(to right bottom, #1A2255, #33BCD0, #313B90, #443B7E, #1A2255);
+    box-shadow: #33BCD0 1px 1px 20px 7px;
+    padding: 4px;
+    border-radius: 15px;
+}
+
+.input {
+    background-color: #212121;
+    max-width: 200px;
+    height: 30px;
+    padding: 0 19px 0 10px;
+    font-size: 0.8rem;
+    position: relative;
+    border: none;
+    color: white;
+    outline: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.box-input::after,
+.box-input::before {
+    content: "";
+    width: 130px;
+    height: 30px;
+    position: absolute;
+    z-index: -1;
+}
+
+.box-input::after {
+    bottom: 0;
+    right: 0;
+}
+
+.box-input::before {
+    top: 0;
+    left: 0;
+}
+
+.input::placeholder {
+    transition: all 0.5s ease-in, transform 0.2s ease-in 0.6s;
+}
+
+.input:focus::placeholder {
+    padding-left: 165px;
+    transform: translateY(-50px);
+}
+
+button {
+    position: relative;
+    border: none;
+    outline: none;
+    background-color: #725ac1;
+    border-radius: 10px;
+    z-index: 2;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    color: #ffff;
+    overflow: hidden;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 800;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: #33BCD0;
+    filter: blur(5px);
+    z-index: -1;
+    transition: width 0.9s ease-out, height 0.9s ease-out,
+        background-color 0.3s ease-out;
+    border-radius: 50%;
+}
+
+button:hover::before {
+    border-radius: 20px;
+    width: 300px;
+    height: 200px;
+    background-color: #33BCD0;
+}
+
+
+
+.middle_container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: center;
+    gap: 40px;
+}
+
+.decorator_container1 {
+    display: flex;
+    text-align: center;
+}
+
+.decorator p {
+    font-size: 1.1rem;
+    width: 58%;
+    margin: 15px 182px;
+    color: white;
+    transition: 0.6s;
+}
+
+.decorator p:hover, #decorator_p:hover{
+    color: #33BCD0;
+}
+
+#decorator_p {
+    font-size: 1.3rem;
+    width: 70%;
+    margin: 15px 100px;
+    color: white;
+    transition: 0.6s;
+}
+
+.decorator_container1 img {
+    width: 50%;
+    border-radius: 5px;
+}
+
+#foto2 {
+    height: 250px;
+    margin-left: 13px;
+    width: 450px;
+}
+
+.decorator h3 {
+    font-size: 1.5rem;
+    margin: 20px;
+    color: white;
+}
+
+
+.decorator_container2 {
+    display: flex;
+    text-align: center;
+}
+
+.decorator_container2 img {
+    width: 50%;
+    border-radius: 5px;
+    margin-left: 85px;
+}
+
+.sheet_icon a {
+    text-decoration: none;
+    color: white;
+}
+
+/* ============================================ Main CSS ========================================== */
+
+
+/* ============================================ Footer CSS ======================================== */
+footer {
+    background-color: #1A2255;
+    height: 670px;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.footer_a {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    margin: 70px 50px;
+}
+
+.footer_a a {
+    color: white;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.sheet_icon a {
+    text-decoration: none;
+    color: white;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.footer_container a {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-decoration: none;
+    font-family: Dancing Script, cursive;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin: 30px 240px;
+    width: 10%;
+    transition: 0.7s;
+}
+
+.footer_container a:hover {
+    color: #33BCD0;
+}
+
+.footer_sheet div p {
+    transition: 0.7s;
+    color: white;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.footer_sheet div {
+    display: flex;
+    margin-bottom: 70px;
+    margin-left: 750px;
+    color: white;
+    font-size: 1.5rem;
+    gap: 40px;
+}
+
+.footer_sheet {
+    margin-top: -355px;
+}
+
+.sheet_footer p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 210px;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.sheet_footer hr {
+    width: 70%;
+    margin: 10px auto;
+}
+
+.ri-mail-fill {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    margin: -43px 550px;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+@keyframes slide {
+    0% {
+        background-position-x: 0%;
+    }
+
+    100% {
+        background-position-x: 600vw;
+    }
+}
+
+.sheet_icon {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8rem;
+    gap: 125px;
+    margin-top: 140px;
+    transition: 0.7s;
+}
+
+/* ============================================ Footer CSS ======================================== */
+
+
+/* ============================================ Media Screen ====================================== */
+
+
+
+/* ============================================ Media Screen ====================================== */

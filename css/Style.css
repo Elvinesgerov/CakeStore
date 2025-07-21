@@ -1,0 +1,1019 @@
+/* ============================================ Font Style ==================================== */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* ============================================ Font Style ==================================== */
+
+/* ============================================ Began WebSite ==================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(53, 53, 75);
+}
+
+header,
+footer {
+    position: relative;
+    z-index: 10;
+}
+
+header,
+main,
+footer,
+#snow {
+    display: none;
+}
+
+/* ============================================ Began WebSite ==================================== */
+.welcoming {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.welcoming h1:first-child {
+    left: 50%;
+    top: -1000px;
+    transform: translate(-50%);
+    position: absolute;
+    transition: 1s;
+    color: white;
+}
+
+.welcoming h1 span {
+    color: #245aab;
+}
+
+.welcoming h1:last-child {
+    position: absolute;
+    right: 50%;
+    transform: translate(50%);
+    bottom: -1000px;
+    transition: 1s;
+    color: white;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: not-allowed;
+    scale: 1;
+    margin-top: 22%;
+}
+
+.central {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    box-shadow: 0.5em 1em 1em blue,
+        -0.5em 0.5em 1em lime,
+        0.5em -0.5em 1em cyan,
+        -0.5em -0.5em 1em yellow;
+}
+
+.external-shadow {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0.5em 0.5em 3em blue,
+        -0.5em 0.5em 3em lime,
+        0.5em -0.5em 3em cyan,
+        -0.5em -0.5em 3em yellow;
+    z-index: 999;
+    animation: rotate 3s linear infinite;
+    background-color: #212121;
+}
+
+.intern {
+    position: absolute;
+    color: white;
+    z-index: 9999;
+}
+
+.intern::before {
+    content: "100%";
+    animation: percent 2s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes percent {
+    0% {
+        content: '0%';
+    }
+
+    25% {
+        content: '25%';
+    }
+
+    33% {
+        content: '33%';
+    }
+
+    42% {
+        content: '42%';
+    }
+
+    51% {
+        content: '51%';
+    }
+
+    67% {
+        content: '67%';
+    }
+
+    74% {
+        content: '74%';
+    }
+
+    75% {
+        content: '75%';
+    }
+
+    86% {
+        content: '86%';
+    }
+
+    95% {
+        content: '95%';
+    }
+
+    98% {
+        content: '98%';
+    }
+
+    99% {
+        content: '99%';
+    }
+}
+
+/* ============================================ Scroll CSS ======================================= */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1A2255;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #313B90;
+}
+
+.generally_scrol {
+    border: none;
+    border-radius: 15px;
+    width: 4%;
+    height: 56px;
+    background-color: #313B90;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 15;
+    font-size: 1.8rem;
+    right: 15px;
+    justify-content: center;
+    top: 90%;
+    color: white;
+    display: none;
+    transition: 0.6s;
+}
+
+.generally_scrol:hover {
+    background-color: #33BCD0;
+    cursor: pointer;
+}
+
+/* ============================================ Scroll CSS ======================================= */
+
+
+/* ============================================ Notification animation =========================== */
+.toast {
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 35px 10px 25px;
+    border-radius: 10px;
+    position: fixed;
+    z-index: 2;
+    top: 25px;
+    right: 35px;
+    width: 350px;
+    border-left: 6px solid blue;
+    overflow-x: hidden;
+    transform: translateX(calc(100% + 40px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.toast .toast-content {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.toast-content .check {
+    width: 35px;
+    height: 35px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toast-content .message {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.message .text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666666;
+}
+
+.message .text.text-1 {
+    font-weight: 600;
+    color: #333;
+}
+
+.toast .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.4s;
+    font-size: 1.2rem;
+}
+
+.toast .close:hover {
+    opacity: 1;
+}
+
+.toast .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background-color: #ddd;
+}
+
+.toast .progress::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+}
+
+.toast.active {
+    transform: translateX(0%);
+}
+
+.progress.active::before {
+    animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+    100% {
+        right: 100%;
+    }
+}
+
+/* ============================================ Notification animation =========================== */
+
+
+/* ============================================ Notification animation =========================== */
+
+/* ============================================ Notification animation =========================== */
+
+
+/* ============================================ Dark Mood ======================================== */
+.darkmood {
+    width: 90px;
+    height: 40px;
+    background-color: #313B90;
+    color: white;
+    border-radius: 15px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: 0.7s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.darkmood:hover {
+    background-color: #33BCD0;
+    color: white;
+    cursor: pointer;
+}
+
+.ri-moon-line,
+.ri-sun-line {
+    font-size: 1.3rem;
+}
+
+/* ============================================ Dark Mood ======================================== */
+
+
+/* ============================================ Snow CSS ========================================== */
+#snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+    width: 100%;
+}
+
+@keyframes animation {
+    to {
+        transform: translateY(785vh);
+    }
+
+}
+
+.snow {
+    position: absolute;
+    top: -10px;
+    font-size: 1rem;
+    user-select: none;
+    animation: animation linear infinite;
+}
+
+/* ============================================ Snow CSS ========================================== */
+
+
+/* ============================================ Header CSS ======================================== */
+.header_container {
+    width: 100%;
+    height: 120px;
+    background-color: #1A2255;
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    align-items: center;
+    gap: 80px;
+    position: fixed;
+}
+
+.header_title {
+    display: flex;
+    gap: 75px;
+}
+
+.header_title a {
+    text-decoration: none;
+    color: aliceblue;
+    transition: 0.7s;
+}
+
+.header_title a:hover {
+    color: #33BCD0;
+}
+
+.change {
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #313B90;
+    font-style: italic;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 47px;
+    transition: 0.7s;
+}
+
+.change:hover {
+    background-color: #33BCD0;
+    color: white !important;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.ri-shopping-cart-2-fill {
+    font-size: 1.8rem;
+}
+
+/* ============================================ Header CSS ======================================== */
+
+
+/* ============================================ Sections CSS ====================================== */
+.zero_container img {
+    width: 80%;
+    height: 900px;
+}
+
+.section_container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 150px 110px;
+    font-size: 1.7rem;
+    background-color: #443B7E;
+    width: 400px;
+    color: #33BCD0;
+}
+
+.section_container a {
+    text-decoration: none;
+    color: white;
+}
+
+.section_container a:hover {
+    color: #33BCD0;
+    transition: 0.7s;
+}
+
+.zero_container {
+    display: flex;
+}
+
+/* ============================================ Sections CSS ====================================== */
+
+
+/* ============================================ Main CSS ========================================== */
+
+.sweet_container {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+    font-family: Dancing Script, cursive;
+    font-style: italic;
+    color: white;
+}
+
+.sweet_container h2 {
+    font-size: 2.2rem;
+}
+
+hr {
+    width: 12%;
+    color: black;
+    height: 0px;
+    margin-top: 20px;
+    font-weight: 900;
+}
+
+.sweet_main {
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sweet_main .box {
+    margin: 40px auto;
+    gap: 20px;
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    border: none;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sweet_main .box:hover {
+    outline: 3px solid #33BCD0;
+}
+
+/* .rating {
+    z-index: 1;
+} */
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    float: right;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s;
+}
+
+.rating label:before {
+    content: '\2605';
+    font-size: 30px;
+}
+
+.rating input:checked~label,
+.rating label:hover,
+.rating label:hover~label {
+    color: #33BCD0;
+    transition: color 0.3s;
+}
+
+.tooltip-hover {
+    position: absolute;
+    z-index: 2;
+    top: -70%;
+    left: 2.5%;
+    width: 90px;
+    display: none;
+    /* background-color: blue; */
+}
+
+.vue {
+    left: 35.5% !important;
+}
+
+.more-than {
+    left: 69% !important;
+}
+
+.tooltip-1 {
+    /* z-index: 2; */
+    /* position: absolute; */
+    /* top: -70%;
+    left: 2.5%; */
+    background-color: #000000;
+    color: white;
+    border-radius: 5px;
+    width: 90px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* visibility: hidden; */
+}
+
+.tooltip-1 p {
+    font-size: 12px !important;
+}
+
+.ri-arrow-down-s-fill {
+    /* z-index: 2; */
+    position: absolute;
+    margin-top: -13%;
+    margin-left: 32%;
+    /* color: red; */
+    font-size: 28px !important;
+}
+
+.ri-loop-left-line:hover .tooltip-hover,
+.ri-zoom-in-line:hover .tooltip-hover,
+.ri-arrow-right-s-line:hover .tooltip-hover {
+    display: block;
+}
+
+.sweet_main .box:hover .modal_box {
+    transform: rotate(0deg);
+}
+
+.modal_box {
+    background-color: #33BCD0;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal_box a {
+    font-size: 22px !important;
+    color: white;
+}
+
+.wave {
+    position: absolute;
+    width: 540px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+    z-index: -1;
+}
+
+.wave:nth-child(2),
+.wave:nth-child(3) {
+    top: 210px;
+}
+
+.playing .wave {
+    border-radius: 40%;
+    animation: wave 3000ms infinite linear;
+}
+
+.wave {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.wave:nth-child(2) {
+    animation-duration: 50s;
+}
+
+.playing .wave:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+.wave:nth-child(3) {
+    animation-duration: 45s;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.sweet_main .box i {
+    font-size: 33px;
+}
+
+.sweet_main .box p {
+    font-size: 1.6rem;
+    color: white;
+}
+
+.sweet_main .box img {
+    width: 200px;
+    border-radius: 4px;
+    height: 230px;
+    border-radius: 13px;
+    transition: 0.6s;
+}
+
+.sweet_main .box img:hover {
+    transform: scale(1.1);
+}
+
+.sweet_main .box button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    overflow: hidden;
+    height: 3rem;
+    background-size: 300% 300%;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #8F51EA 45%, #8F51EA 67%, #0044ff 87%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.btn {
+    z-index: 2;
+    color: #FFFFFF;
+}
+
+.btn:hover {
+    transform: scale(1.1)
+}
+
+.btn:active {
+    border: double 4px #313B90;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+}
+
+
+@keyframes gradient_301 {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.sweet_main .box button:hover {
+    border: 2px solid blue;
+    cursor: pointer;
+}
+
+
+#sweetMain {
+    display: flex;
+    justify-content: space-around;
+}
+
+.guest_container img {
+    width: 100%;
+    height: 800px;
+}
+
+.guest_container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.guest_container div p {
+    width: 70%;
+    font-size: 1.8rem;
+    color: rgb(6, 3, 3);
+}
+
+a {
+    text-decoration: none;
+}
+
+.guest_container div button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    overflow: hidden;
+    height: 3rem;
+    background-size: 300% 300%;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #8F51EA 45%, #8F51EA 67%, #0044ff 87%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    margin-top: 20px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.guest_container img {
+    opacity: 0.5;
+    margin-top: -150px;
+}
+
+.guest_container {
+    margin-top: 200px;
+}
+
+.guest_container h2 {
+    font-weight: 900;
+    color: rgb(25, 25, 120);
+    font-size: 2.5rem;
+}
+
+.guest_container_title {
+    margin: 60px auto;
+    display: flex;
+    font-family: Dancing Script, cursive;
+    font-style: italic;
+    justify-content: center;
+    color: white;
+    font-size: 3.6rem;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+@keyframes slide {
+    0% {
+        background-position-x: 0%;
+    }
+
+    100% {
+        background-position-x: 600vw;
+    }
+}
+
+.cake__header {
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    height: 60px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    margin-left: 60px;
+    color: white;
+    background-color: #5F4DEA;
+}
+
+.cake__header h2 {
+    margin-top: 12px;
+    font-size: 2rem;
+    font-family: italic;
+}
+
+.guest_container_out {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.guest_container_out button {
+    transition: 0.7s;
+}
+
+.guest_container_out button:hover {
+    transform: scale(1.2);
+    background-color: white;
+    color: black;
+}
+
+/* ============================================ Main CSS ========================================== */
+
+
+/* ============================================ Footer CSS ======================================== */
+footer {
+    background-color: #1A2255;
+    height: 600px;
+    width: 100%;
+}
+
+.footer_a {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    margin: 70px 50px;
+}
+
+.footer_a a {
+    color: white;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.sheet_icon a {
+    text-decoration: none;
+    color: white;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.footer_container a {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-decoration: none;
+    font-family: Dancing Script, cursive;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin: 30px 240px;
+    width: 10%;
+    transition: 0.7s;
+}
+
+.footer_container a:hover {
+    color: #33BCD0;
+}
+
+.footer_sheet div p {
+    transition: 0.7s;
+    color: white;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.footer_sheet div {
+    display: flex;
+    margin-bottom: 70px;
+    margin-left: 750px;
+    color: white;
+    font-size: 1.5rem;
+    gap: 40px;
+}
+
+.footer_sheet {
+    margin-top: -355px;
+}
+
+.sheet_footer p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 210px;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.sheet_footer hr {
+    width: 70%;
+    margin: 10px auto;
+}
+
+.ri-mail-fill {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    margin: -43px 550px;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.sheet_icon {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8rem;
+    gap: 125px;
+    margin-top: 140px;
+    transition: 0.7s;
+}
+
+/* ============================================ Footer CSS ======================================== */
+
+
+/* ============================================ Media Screen ====================================== */
+
+
+
+/* ============================================ Media Screen ====================================== */

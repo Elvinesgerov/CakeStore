@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--============================================ WebSite Name =================================-->
+    <title>Vacancies</title>
+    <!--============================================ WebSite Name =================================-->
+
+    <!--============================================ CSS Link =====================================-->
+    <link rel="stylesheet" href="../css/vacancies.css" />
+    <!--============================================ CSS Link =====================================-->
+
+    <!--============================================ WebSite Logo =================================-->
+    <link rel="shortcut icon" href="../image/logoFoto.webp" />
+    <!--============================================ WebSite Logo =================================-->
+
+    <!--============================================ RemixIcon CDN ================================-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" rel="stylesheet" />
+    <!--============================================ RemixIcon CDN ================================-->
+
+    <!--============================================ İ18n CDN =====================================-->
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+        rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/i18next/dist/umd/i18next.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <!--============================================ İ18n CDN =====================================-->
+
+    <!--============================================ Fontawesome CDN ==============================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--============================================ Fontawesome CDN ==============================-->
+</head>
+
+<body>
+    <!--============================================ Scrol Funtions =========================================-->
+    <div class="generally_scrol" id="goToTopButton" onclick="goToTop()">
+        <i class="ri-arrow-up-line"></i>
+    </div>
+    <!--============================================ Scrol Funtions =========================================-->
+
+    <!--============================================ Snow Funtions ==========================================-->
+    <div id="snow"></div>
+    <!--============================================ Snow Funtions ==========================================-->
+
+    <!--============================================ Header Sections ========================================-->
+    <header>
+        <div class="header_container">
+            <img class="logo" src="../image/logoFoto.webp" alt="logo" />
+            <div class="header_title">
+                <a href="../index.html" data-i18n="headerHome">Home</a>
+                <a href="../html/about.html" data-i18n="headerAbout">About</a>
+                <a href="../html/vacancies.html" data-i18n="headerVacancies">Vacancies</a>
+                <a href="../html/contact.html" data-i18n="headerContact">Contact</a>
+                <a href="../html/basket.html"><i class="ri-shopping-cart-2-fill"></i><sup
+                        style="color: blue; font-weight: 900;" id="sup">0</sup></a>
+                <a href="" class="change" data-i18n="headerChange">Change Languge</a>
+                <div class="darkmood">
+                    <i class="ri-moon-line"></i>
+                    <i class="ri-sun-line"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--============================================ Header Sections ========================================-->
+
+
+    <!--============================================ Main Sections ==========================================-->
+    <main>
+        <h2 data-i18n="VacanciesMain">Vacancies</h2>
+        <div class="search">
+            <div class="box-input">
+                <div class="border">
+                    <input type="text" name="text" class="input" placeholder="...Searce">
+                </div>
+            </div>
+            <button class="button">Button</button>
+        </div>
+        <div class="middle_container">
+            <div class="decorator_container1">
+                <div class="decorator">
+                    <h3 data-i18n="CakeDecorator">Cake Decorator</h3>
+                    <img style="width: 500px; height: 255px;" src="../image/hazirlanma2.jpg" alt="Foto"
+                        class="decoratorOne" />
+                    <p data-i18n="CakeDecoratorTitle">Job-type: "Full-time", A Cake Decorator is a creative and skilled
+                        professional responsible for
+                        designing, decorating, and crafting custom cakes for a variety of occasions. This role requires
+                        artistic flair, attention to detail, and a deep understanding of baking techniques . Salary: 30$
+                        for
+                        per-week , For detailed information, you can contact number: +994 55 551 60 03</p>
+                </div>
+                <div class="decorator">
+                    <h3 data-i18n="Production">Production Team Member</h3>
+                    <img src="../image/hazirlanma.webp" alt="Foto" id="foto2" />
+                    <p id="decorator_p" data-i18n="From">From £10.50 an hour - Part-time, Full-time, Are you
+                        enthusiastic
+                        about deliverin great customer service and passionate about producing delicious products?You can
+                        apply our compan Phone number: +994 55 551 60 02</p>
+                </div>
+            </div>
+            <div class="decorator_container2">
+                <div class="decorator">
+                    <h3 style="margin-left: 140px;" data-i18n="Kitchen">Kitchen Assistant</h3>
+                    <img style="width: 500px;" src="../image/hazirlanma4.jpg" alt="Foto" />
+                    <p style="width: 65%;" data-i18n="KitchenTitle">From 7AZN an hour - Part-time, Full-time, Supporting
+                        production in all
+                        areas
+                        of the kitchen. Maintaining the kitchen hygiene and support with opening/closing down procedures
+                        Producing cakes and buffet items with the guidance of the duty chef.Phone number : +994 55 551
+                        60 02
+                    </p>
+                </div>
+                <div class="decorator">
+                    <h3 style="margin-left: 140px;" data-i18n="CakeDecorator2">Cake Decorator</h3>
+                    <img style="width: 450px; margin-left: 130px; height: 285px;" src="../image/hazirlanma3.jpg"
+                        alt="Foto" />
+                    <p style="width: 65%;" data-i18n="CakeDecorator2Title">From 10AZN an hour - Job is part-time.
+                        Maintain an atmosphere of
+                        enthusiastic customer awareness with primary emphasis on fast, friendly, and accurate customer
+                        service to create a positive shopping experience. Address: Baku,Hovsan ,+994 55 551 60 01</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--============================================ Main Sections ==========================================-->
+
+    <!--============================================ Footer Sections ========================================-->
+    <footer>
+        <div class="footer_container">
+            <div class="footer_a">
+                <a href="../html/contact.html" data-i18n="footerContact">Contact</a>
+                <a href="../html/about.html" data-i18n="footerAbout">About</a>
+                <a href="../html/vacancies.html" data-i18n="footerVacancies">Vacancies</a>
+                <a href="../index.html" data-i18n="footerHome">Home</a>
+            </div>
+        </div>
+        <div class="footer_sheet">
+            <div>
+                <p data-i18n="Nizami">Nizami: +994 55 551 60 01</p>
+                <p data-i18n="Merdakan">Mərdəkan: +994 55 551 60 02</p>
+            </div>
+            <div>
+                <p data-i18n="Yasamal">Yasamal: +994 55 551 60 03</p>
+                <p data-i18n="Bakixanov">Bakixanov: +994 55 551 60 04</p>
+            </div>
+        </div>
+        <div class="sheet_footer">
+            <p>e-mail : sweetcakes@gmail.com</p>
+            <hr />
+            <i class="ri-mail-fill"></i>
+        </div>
+        <div class="sheet_icon">
+            <a href="https://wa.me/+994503851383" class="ri-whatsapp-line" target="_blank"></a>
+            <a href="https://github.com/Elvinesgerov" class="ri-github-fill" target="_blank"></a>
+            <a href="https://www.linkedin.com/in/elvin-esgerov-5b0929290/" class="ri-linkedin-fill" target="_blank"></a>
+            <a href="https://www.instagram.com/esgerov.060" class="ri-instagram-line" target="_blank"></a>
+        </div>
+    </footer>
+    <!--============================================ Footer Sections ========================================-->
+
+    <script src="../js/vacancies.js"></script>
+</body>
+
+</html>

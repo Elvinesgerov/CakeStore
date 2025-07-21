@@ -1,0 +1,1890 @@
+/* ============================================ Font Style ==================================== */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* ============================================ Font Style ==================================== */
+
+/* ============================================ Began WebSite ==================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: rgb(53, 53, 75);
+}
+
+/* ============================================ Scroll CSS ======================================= */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1A2255;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #313B90;
+}
+
+.generally_scrol {
+    border: none;
+    border-radius: 15px;
+    width: 4%;
+    height: 56px;
+    background-color: #313B90;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 15;
+    font-size: 1.8rem;
+    right: 15px;
+    justify-content: center;
+    top: 90%;
+    color: white;
+    display: none;
+    transition: 0.6s;
+}
+
+.generally_scrol:hover {
+    background-color: #33BCD0;
+    cursor: pointer;
+}
+
+/* ============================================ Scroll CSS ======================================= */
+
+.fixed a {
+    display: flex;
+    gap: 50px;
+    position: relative;
+}
+
+.fixed-whatsapp,
+.fixed-instagram {
+    background-color: #5292e1;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fixed-instagram a::after,
+.fixed-whatsapp a::after {
+    border: #5098E1 solid 3px;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    content: ' ';
+    height: 200%;
+    left: -50%;
+    opacity: .8;
+    position: absolute;
+    top: -50%;
+    transform: scale(.714);
+    width: 200%;
+    z-index: 1;
+
+    animation: pulse 1.4s linear infinite;
+}
+
+.fixed-instagram a::before,
+.fixed-whatsapp a::before {
+    border: #5098E1 solid 3px;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    content: ' ';
+    height: 210%;
+    left: -55%;
+    opacity: .8;
+    position: absolute;
+    top: -50%;
+    transform: scale(.714);
+    width: 210%;
+    z-index: 1;
+
+    animation: pulse .8s linear infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.714);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(0.714);
+    }
+}
+
+.fixed {
+    position: fixed;
+    top: 55%;
+    right: 0px;
+    transform: translate(0, -50%);
+    padding: 20px;
+    z-index: 20;
+}
+
+.fixed .ri-whatsapp-line,
+.fixed .ri-instagram-line {
+    font-size: 35px;
+    color: white;
+}
+
+.fixed-instagram {
+    margin-top: 40px;
+}
+
+/* ============================================ Notification animation =========================== */
+.toast {
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 35px 10px 25px;
+    border-radius: 10px;
+    position: fixed;
+    z-index: 150;
+    top: 25px;
+    right: 35px;
+    width: 350px;
+    border-left: 6px solid blue;
+    overflow-x: hidden;
+    transform: translateX(calc(100% + 40px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.toast .toast-content {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.toast-content .check {
+    width: 35px;
+    height: 35px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toast-content .message {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.message .text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666666;
+}
+
+.message .text.text-1 {
+    font-weight: 600;
+    color: #333;
+}
+
+.toast .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.4s;
+    font-size: 1.2rem;
+}
+
+.toast .close:hover {
+    opacity: 1;
+}
+
+.toast .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background-color: #ddd;
+}
+
+.toast .progress::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+}
+
+.toast.active {
+    transform: translateX(0%);
+}
+
+.progress.active::before {
+    animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+    100% {
+        right: 100%;
+    }
+}
+
+/* ============================================ Notification animation =========================== */
+/* ============================================ Dark Mood ======================================== */
+.darkmood {
+    width: 90px;
+    height: 40px;
+    background-color: #313B90;
+    color: white;
+    border-radius: 15px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: 0.7s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.darkmood:hover {
+    background-color: #33BCD0;
+    color: white;
+    cursor: pointer;
+}
+
+.ri-moon-line,
+.ri-sun-line,
+.darkmood a {
+    font-size: 1.3rem;
+}
+
+/* ============================================ Dark Mood ======================================== */
+
+
+/* ============================================ Snow CSS ========================================== */
+#snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 500;
+    width: 100%;
+}
+
+@keyframes animation {
+    to {
+        transform: translateY(785vh);
+    }
+
+}
+
+.snow {
+    position: absolute;
+    top: -10px;
+    font-size: 1rem;
+    user-select: none;
+    animation: animation linear infinite;
+}
+
+/* ============================================ Snow CSS ========================================== */
+
+/* Modalın əsas stili */
+.jsmodal {
+    display: none;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    margin: 5% 20%;
+    width: 60%;
+    height: 80%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    z-index: 1000;
+    overflow: auto;
+    box-shadow: rgba(68, 59, 126, 0.4) -5px 5px, rgba(68, 59, 126, 0.3) -10px 10px, rgba(68, 59, 126, 0.2) -15px 15px, rgba(68, 59, 126, 0.1) -20px 20px, rgba(68, 59, 126, 0.05) -25px 25px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.jsmodal.show {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.jsmodal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.jsmodal__close:hover {
+    color: black;
+}
+
+.jsmodal__left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.jsmodal__left img {
+    width: 85%;
+    height: 80%;
+    border-radius: 5px;
+}
+
+
+.smallfoto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #0044ff;
+    border-radius: 5px;
+}
+
+.smallfoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.jsmodal__right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 8%;
+}
+
+.size__container-button button {
+    width: 60px;
+    height: 35px;
+    border: 1px solid #0044ff;
+    background-color: #f0f0f0;
+    color: #0044ff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.size__container-button button:hover {
+    background-color: #0044ff;
+    color: white;
+}
+
+.number__container {
+    display: flex;
+    gap: 20px;
+}
+
+.number__container button {
+    height: 35px;
+    width: 200px;
+    background-color: #00ddeb;
+    color: white;
+    font-size: 18px;
+    border: 2px solid #0044ff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.number__container button:hover {
+    background-color: #00bcd4;
+}
+
+.share-icon i {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.jsmodal h2,
+.jsmodal h3 {
+    color: #0044ff;
+}
+
+/* ============================================ Header CSS ======================================== */
+.header_container {
+    width: 100%;
+    height: 120px;
+    background-color: #1A2255;
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    align-items: center;
+    gap: 60px;
+    position: fixed;
+    z-index: 99;
+}
+
+.header_title {
+    display: flex;
+    gap: 65px;
+}
+
+.header_title a {
+    text-decoration: none;
+    color: aliceblue;
+    transition: 0.7s;
+}
+
+.header_title a:hover {
+    color: #33BCD0;
+}
+
+.change {
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #313B90;
+    font-style: italic;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 47px;
+    transition: 0.7s;
+}
+
+.change:hover {
+    background-color: #33BCD0;
+    color: white !important;
+}
+
+.logoheader {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.ri-shopping-cart-2-fill {
+    font-size: 1.8rem;
+}
+
+/* ============================================ Header CSS ======================================== */
+
+
+/* ============================================ Sections CSS ====================================== */
+.zero_container img {
+    width: 80%;
+    height: 900px;
+}
+
+.section_container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 150px 110px;
+    font-size: 1.7rem;
+    background-color: #443B7E;
+    width: 400px;
+    height: 900px;
+    color: #33BCD0;
+}
+
+.section_container a {
+    text-decoration: none;
+    color: white;
+}
+
+.section_container a:hover {
+    color: #33BCD0;
+    transition: 0.7s;
+}
+
+.searcesections {
+    border: 1px solid #00ddeb;
+    outline: none;
+    height: 25px;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.zero_container {
+    display: flex;
+}
+
+/* ============================================ Sections CSS ====================================== */
+
+
+/* ============================================ Main CSS ========================================== */
+
+.sweet_container {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+    font-family: Dancing Script, cursive;
+    font-style: italic;
+    color: white;
+}
+
+.sweet_container h2 {
+    font-size: 2.2rem;
+}
+
+hr {
+    width: 12%;
+    color: black;
+    height: 0px;
+    margin-top: 20px;
+    font-weight: 900;
+}
+
+.sweet_main {
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sweet_main .box {
+    margin: 40px auto;
+    gap: 20px;
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    border: none;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sweet_main .box:hover {
+    outline: 3px solid #33BCD0;
+}
+
+/* .rating {
+    z-index: 1;
+} */
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    float: right;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s;
+}
+
+.rating label:before {
+    content: '\2605';
+    font-size: 30px;
+}
+
+.rating input:checked~label,
+.rating label:hover,
+.rating label:hover~label {
+    color: #33BCD0;
+    transition: color 0.3s;
+}
+
+.tooltip-hover {
+    position: absolute;
+    z-index: 2;
+    top: -70%;
+    left: 2.5%;
+    width: 90px;
+    display: none;
+}
+
+.vue {
+    left: 35.5% !important;
+}
+
+.more-than {
+    left: 69% !important;
+}
+
+.tooltip-1 {
+    background-color: #000000;
+    color: white;
+    border-radius: 5px;
+    width: 90px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-1 p {
+    font-size: 12px !important;
+}
+
+.ri-arrow-down-s-fill {
+    position: absolute;
+    margin-top: -13%;
+    margin-left: 32%;
+    font-size: 28px !important;
+}
+
+.ri-loop-left-line:hover .tooltip-hover,
+.ri-zoom-in-line:hover .tooltip-hover,
+.ri-arrow-right-s-line:hover .tooltip-hover,
+.ri-check-double-line:hover .tooltip-hover {
+    display: block;
+}
+
+.sweet_main .box:hover .modal_box {
+    transform: rotate(0deg);
+}
+
+.modal_box {
+    background-color: #33BCD0;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal_box a {
+    font-size: 22px !important;
+    color: white;
+}
+
+.wave {
+    position: absolute;
+    width: 540px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+    z-index: -1;
+}
+
+.wave:nth-child(2),
+.wave:nth-child(3) {
+    top: 210px;
+}
+
+.playing .wave {
+    border-radius: 40%;
+    animation: wave 3000ms infinite linear;
+}
+
+.wave {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.wave:nth-child(2) {
+    animation-duration: 50s;
+}
+
+.playing .wave:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+.wave:nth-child(3) {
+    animation-duration: 45s;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.sweet_main .box i {
+    font-size: 33px;
+}
+
+.sweet_main .box p {
+    font-size: 1.6rem;
+    color: white;
+}
+
+.sweet_main .box img {
+    width: 200px;
+    border-radius: 4px;
+    height: 230px;
+    border-radius: 13px;
+    transition: 0.6s;
+}
+
+.sweet_main .box img:hover {
+    transform: scale(1.1);
+}
+
+.sweet_main .box button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    overflow: hidden;
+    height: 3rem;
+    background-size: 300% 300%;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #8F51EA 45%, #8F51EA 67%, #0044ff 87%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.btn {
+    z-index: 2;
+    color: #FFFFFF;
+}
+
+.btn:hover {
+    transform: scale(1.1)
+}
+
+.btn:active {
+    border: double 4px #313B90;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+}
+
+
+@keyframes gradient_301 {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.sweet_main .box button:hover {
+    border: 2px solid blue;
+    cursor: pointer;
+}
+
+
+#sweetMain {
+    display: flex;
+    justify-content: space-around;
+}
+
+.guest_container img {
+    width: 100%;
+    height: 800px;
+}
+
+.guest_container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.guest_container div p {
+    width: 70%;
+    font-size: 1.8rem;
+    color: rgb(6, 3, 3);
+}
+
+a {
+    text-decoration: none;
+}
+
+.guest_container div button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    overflow: hidden;
+    height: 3rem;
+    background-size: 300% 300%;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #8F51EA 45%, #8F51EA 67%, #0044ff 87%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    margin-top: 20px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.guest_container img {
+    opacity: 0.5;
+    margin-top: -150px;
+}
+
+.guest_container {
+    margin-top: 200px;
+}
+
+.guest_container h2 {
+    font-weight: 900;
+    color: rgb(25, 25, 120);
+    font-size: 2.5rem;
+}
+
+.guest_container_title {
+    margin: 60px auto;
+    display: flex;
+    font-family: Dancing Script, cursive;
+    font-style: italic;
+    justify-content: center;
+    color: white;
+    font-size: 3.6rem;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+@keyframes slide {
+    0% {
+        background-position-x: 0%;
+    }
+
+    100% {
+        background-position-x: 600vw;
+    }
+}
+
+.cake__header {
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    height: 60px;
+    display: flex;
+    margin: 20px auto;
+    justify-content: center;
+    color: white;
+    background-color: #5F4DEA;
+}
+
+.cake__header h2 {
+    margin-top: 12px;
+    font-size: 2rem;
+    font-family: italic;
+}
+
+.guest_container_out {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.guest_container_out button {
+    transition: 0.7s;
+}
+
+.guest_container_out button:hover {
+    transform: scale(1.2);
+    background-color: white;
+    color: black;
+}
+
+.swiper {
+    width: 80%;
+    height: 70vh;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    margin: 50px auto;
+}
+
+.slide1 {
+    background-image: url("https://t4.ftcdn.net/jpg/08/01/16/05/360_F_801160576_DNIyCOeas62VIomLTibsIGePLwg2TFVu.jpg");
+}
+
+.slide2 {
+    background-image: url("https://i.pinimg.com/originals/53/81/ee/5381ee9f25bbcbcc9ec2da21b0613642.jpg");
+}
+
+.slide3 {
+    background-image: url("https://mojo.generalmills.com/api/public/content/fYX6Lw1vQ0qhBLaxWAVpCA_webp_base.webp?v=fe9d2734&t=e724eca7b3c24a8aaa6e089ed9e611fd");
+}
+
+.slide4 {
+    background-image: url("https://media.istockphoto.com/id/1420144998/photo/birthday-cake-with-slice-removed-and-blue-birthday-candle.jpg?s=612x612&w=0&k=20&c=62n3mcQgNk_LR5N_DbWva2uUlGphXABbnSU_vXdk4Kc=");
+}
+
+.slide5 {
+    background-image: url("https://funcakes.com/content/uploads/2022/07/Fun-Cakes-20220721-Sweet-16-Boys-02-600x400.webp");
+}
+
+.slide6 {
+    background-image: url("https://www.bestmummy.in/wp-content/uploads/2022/07/00000283-600x400.jpg");
+}
+
+.slide7 {
+    background-image: url("https://mrtsbakery.com.au/cdn/shop/products/rose-birthday-cake_600x.jpg?v=1721787914");
+}
+
+.slide8 {
+    background-image: url("https://www.redtedart.com/wp-content/uploads/2015/02/Skylanders-Cake-for-the-perfect-Skylanders-Party.jpg");
+}
+
+.slide9 {
+    background-image: url("https://www.isher.com.au/cdn/shop/files/cricket-cake-2-sc305-944.jpg?v=1712307965");
+}
+
+.slide10 {
+    background-image: url("https://t4.ftcdn.net/jpg/07/04/57/65/360_F_704576500_MWpONi6gvs1QvuxpLJfe02bUCEnPd1hA.jpg");
+}
+
+.carousel {
+    position: relative;
+    z-index: 1;
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    margin: 80px auto;
+    padding: 25px;
+}
+
+.carousel-item {
+    --items: 10;
+    --width: clamp(150px, 30vw, 300px);
+    --height: clamp(200px, 40vw, 400px);
+    --x: calc(var(--active) * 800%);
+    --y: calc(var(--active) * 200%);
+    --rot: calc(var(--active) * 120deg);
+    --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+    overflow: hidden;
+    position: absolute;
+    z-index: var(--zIndex);
+    width: var(--width);
+    height: var(--height);
+    margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transform-origin: 0% 100%;
+    box-shadow: 0 10px 50px 10px rgba(0, 0, 0, 0.5);
+    background: black;
+    pointer-events: all;
+    transform: translate(var(--x), var(--y)) rotate(var(--rot));
+    transition: transform 0.8s cubic-bezier(0, 0.02, 0, 1);
+}
+
+.carousel-item .carousel-box {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+    opacity: var(--opacity);
+}
+
+.carousel-item .carousel-box:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5));
+}
+
+.carousel-item .title {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: clamp(20px, 3vw, 30px);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item .num {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    top: 10px;
+    left: 20px;
+    transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+    font-size: clamp(20px, 10vw, 80px);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.layout {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.layout:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 90px;
+    width: 10px;
+    height: 100%;
+    border: 1px solid #fff;
+    border-top: none;
+    border-bottom: none;
+    opacity: 0.15;
+}
+
+.layout .box {
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    color: #fff;
+    transform-origin: 0% 10%;
+    transform: rotate(-90deg);
+    font-size: 9px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    opacity: 0.4;
+}
+
+.logo {
+    position: absolute;
+    z-index: 2;
+    top: 28px;
+    right: 28px;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Orelo-sw-db", serif;
+    pointer-events: all;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    overflow: hidden;
+    padding-bottom: 0.1em;
+}
+
+.social {
+    position: absolute;
+    z-index: 10;
+    bottom: 20px;
+    right: 25px;
+    color: #fff;
+    opacity: 0.4;
+}
+
+.social a {
+    display: inline-block;
+    margin-left: 3px;
+}
+
+.cursor {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    --size: 40px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: calc(var(--size) * -0.5) 0 0 calc(var(--size) * -0.5);
+    transition: transform 0.85s cubic-bezier(0, 0.02, 0, 1);
+    display: none;
+    pointer-events: none;
+}
+
+
+@media (pointer: fine) {
+    .cursor {
+        display: block;
+    }
+}
+
+.cursor2 {
+    --size: 2px;
+    transition-duration: 0.7s;
+}
+
+:root {
+    --carousel-transition-duration: 250ms;
+    --carousel-transition-ease: ease-out;
+    --carousel-bg-color-rgb: 0, 0, 0;
+    --carousel-shadow-color-rgb: 128, 128, 128;
+    --carousel-item-width: 11.5rem;
+    --carousel-item-height: 17.5rem;
+    --carousel-item-hover-effect: 1.075;
+    --carousel-item-reflection-blur: 0.25rem;
+    --carousel-item-empty-color-rgb: 255, 255, 255;
+    --carousel-item-glow-color-rgb: 255, 255, 255;
+    --carousel-item-glow-size: 5rem;
+    --carousel-diameter: 50rem;
+    --carousel-3d-perspective: 1000px;
+    --carousel-3d-perspective-origin: 50% 20%;
+    --carousel-control-button-width: 1.25rem;
+    --carousel-control-button-height: 4rem;
+    --carousel-control-color-rgb: 255, 255, 255;
+    --carousel-animation-duration: 25s;
+    --carousel-animation-play-state: running;
+    --carousel-direction-animation-play-state: paused;
+}
+
+.container-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.carousel1 {
+    --_diameter: var(--carousel-diameter);
+    --_radius: calc(var(--_diameter) / 2);
+    --_item-width: var(--carousel-item-width);
+    --_item-height: var(--carousel-item-height);
+    perspective: var(--carousel-3d-perspective);
+    perspective-origin: var(--carousel-3d-perspective-origin);
+    width: var(--_diameter);
+    height: var(--_diameter);
+}
+
+@media only screen and (max-width: 48rem) {
+    .carousel1 {
+        --_diameter: calc(var(--carousel-diameter) * 0.75);
+        --_item-width: calc(var(--carousel-item-width) * 0.75);
+        --_item-height: calc(var(--carousel-item-height) * 0.75);
+    }
+}
+
+@media only screen and (max-width: 32rem) {
+    .carousel1 {
+        --_diameter: calc(var(--carousel-diameter) * 0.6);
+        --_item-width: calc(var(--carousel-item-width) * 0.6);
+        --_item-height: calc(var(--carousel-item-height) * 0.6);
+    }
+}
+
+@media only screen and (max-width: 16rem) {
+    .carousel1 {
+        --_diameter: calc(var(--carousel-diameter) * 0.25);
+        --_item-width: calc(var(--carousel-item-width) * 0.25);
+        --_item-height: calc(var(--carousel-item-height) * 0.25);
+    }
+}
+
+.carousel1 .carousel-control-button {
+    --_width: var(--carousel-control-button-width);
+    --_height: var(--carousel-control-button-height);
+    z-index: 1;
+    width: var(--_width);
+    height: var(--_height);
+    background-color: rgb(var(--carousel-control-color-rgb));
+    opacity: 0.2;
+    transition: opacity var(--carousel-transition-duration) var(--carousel-transition-ease);
+    position: absolute;
+}
+
+.carousel1 .carousel-control-button:hover {
+    opacity: 0.4;
+}
+
+.carousel1 .carousel-control-button:has(input:checked) {
+    opacity: 0.8;
+}
+
+.carousel1 .carousel-control-button input {
+    -webkit-appearance: none;
+    appearance: none;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.carousel1 .carousel-control-button.left {
+    clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+    top: calc(var(--_radius) - var(--_height) / 2);
+    left: 0;
+}
+
+.carousel1:has(.carousel-control-button.left input:checked) {
+    --carousel-direction-animation-play-state: running;
+}
+
+.carousel1 .carousel-control-button.right {
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    top: calc(var(--_radius) - var(--_height) / 2);
+    right: 0;
+}
+
+.carousel1:has(.carousel-control-button.right input:checked) {
+    --carousel-direction-animation-play-state: paused;
+}
+
+.carousel1 .carousel-rotation-direction {
+    --_direction-animation-play-state: var(--carousel-direction-animation-play-state);
+    --_z: calc(var(--_radius) * -1);
+    transform: translateZ(var(--_z));
+    transform-style: preserve-3d;
+    animation: carousel-rotation-reverse calc(var(--carousel-animation-duration) / 2) reverse linear infinite var(--_direction-animation-play-state);
+    transition: all var(--carousel-transition-duration) var(--carousel-transition-ease);
+}
+
+@keyframes carousel-rotation-reverse {
+    from {
+        transform: translateZ(var(--_z)) rotateY(0deg);
+    }
+
+    to {
+        transform: translateZ(var(--_z)) rotateY(360deg);
+    }
+}
+
+@keyframes carousel-rotation-normal {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.carousel1 .carousel-item-wrapper {
+    transform-style: inherit;
+    width: inherit;
+    height: inherit;
+    list-style-type: none;
+    position: relative;
+    animation: carousel-rotation-normal var(--carousel-animation-duration) normal linear infinite var(--carousel-animation-play-state);
+    transition: all var(--carousel-transition-duration) var(--carousel-transition-ease);
+}
+
+.carousel1 .carousel-rotation-direction:has(.carousel-item1:hover) {
+    --carousel-animation-play-state: paused;
+    --_direction-animation-play-state: paused;
+}
+
+.carousel1 .carousel-item1 {
+    --_width: var(--_item-width);
+    --_height: var(--_item-height);
+    --_rotation: calc(360 / var(--_num-elements) * var(--_index) * 1deg);
+    left: calc(var(--_radius) - var(--_item-width) / 2);
+    top: calc(var(--_radius) - var(--_item-height) / 2);
+    transform: rotateY(var(--_rotation)) translateZ(var(--_radius));
+    transform-style: inherit;
+    width: var(--_width);
+    height: var(--_height);
+    transition: all var(--carousel-transition-duration) var(--carousel-transition-ease);
+    box-shadow: 0 0 var(--carousel-item-glow-size) transparent;
+    position: absolute;
+}
+
+.carousel1 .carousel-item1:hover {
+    box-shadow: 0 0 var(--carousel-item-glow-size) rgb(var(--carousel-item-glow-color-rgb));
+    transform: rotateY(var(--_rotation)) translateZ(calc(var(--_radius) * var(--carousel-item-hover-effect)));
+}
+
+.carousel1 .carousel-item1 a {
+    display: block;
+    width: inherit;
+    height: inherit;
+    text-indent: -9999px;
+    background-color: rgba(var(--carousel-item-empty-color-rgb), 0.5);
+    background-image: var(--_image-url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: filter var(--carousel-transition-duration) var(--carousel-transition-ease);
+}
+
+
+.carousel1 .carousel-item1::before {
+    content: '';
+    width: inherit;
+    height: inherit;
+    background-color: rgba(var(--carousel-item-empty-color-rgb), 0.5);
+    background-image:
+        linear-gradient(to top, rgba(var(--carousel-bg-color-rgb), 0.25) 0%, rgba(var(--carousel-bg-color-rgb), 1.0) 75%),
+        var(--_image-url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+    filter: blur(var(--carousel-item-reflection-blur));
+    transition: filter var(--carousel-transition-duration) var(--carousel-transition-ease);
+    transform-style: inherit;
+    transform-origin: center bottom;
+    transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg);
+    position: absolute;
+}
+
+.carousel1 .carousel-item1:hover::before {
+    filter: blur(var(--carousel-item-reflection-blur));
+}
+
+.carousel1 .carousel-ground {
+    --_width: var(--_diameter);
+    --_height: var(--_diameter);
+    --_rotation: 90deg;
+    left: calc(var(--_radius) - var(--_width) / 2);
+    top: calc(var(--_radius) - var(--_height) / 2);
+    transform: rotateX(var(--_rotation)) translateZ(calc(var(--_item-height) / -2));
+    width: var(--_width);
+    height: var(--_height);
+    border-radius: 50%;
+    background: radial-gradient(rgba(var(--carousel-shadow-color-rgb), 0.75) 15%, rgba(var(--carousel-bg-color-rgb), 0) 60%);
+    opacity: 0.5;
+    transition: opacity var(--carousel-transition-duration) var(--carousel-transition-ease);
+    position: absolute;
+}
+
+.carousel1 .carousel-item-wrapper:has(.carousel-item1:hover) .carousel-ground {
+    opacity: 0.75;
+}
+
+#source-link {
+    top: 120px;
+}
+
+#source-link>i {
+    color: rgb(94, 106, 210);
+}
+
+#yt-link {
+    top: 65px;
+}
+
+#yt-link>i {
+    color: rgb(219, 31, 106);
+
+}
+
+#Fund-link {
+    top: 10px;
+}
+
+#Fund-link>i {
+    color: rgb(255, 251, 0);
+
+}
+
+.meta-link {
+    align-items: center;
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: inline-flex;
+    gap: 5px;
+    left: 10px;
+    padding: 10px 20px;
+    position: fixed;
+    text-decoration: none;
+    transition: background-color 600ms, border-color 600ms;
+    z-index: 10000;
+}
+
+.meta-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.meta-link>i,
+.meta-link>span {
+    height: 20px;
+    line-height: 20px;
+}
+
+.meta-link>span {
+    color: white;
+    font-family: "Rubik", sans-serif;
+    transition: color 600ms;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+    position: relative;
+    cursor: pointer;
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 1s;
+    z-index: 2;
+}
+
+.cover div {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.front,
+.back,
+.page {
+    width: 100%;
+    height: 100%;
+    background-color: #ff6347;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    position: absolute;
+}
+
+.front1 {
+    z-index: 2;
+    background-image: url('https://www.withlovekitty.com/wp-content/uploads/2023/01/Naked-Carrot-Cake-1-24.jpg');
+}
+
+.back1 {
+    background-image: url('https://media.karousell.com/media/photos/products/2020/6/24/floral_cakes_bouquet_cake_birt_1593011818_5dbaacc0_progressive.jpg');
+    transform: rotateY(180deg);
+}
+
+.front2 {
+    z-index: 2;
+    background-image: url('https://southerncakecmb.com/wp-content/uploads/2023/08/IMG-6840-PhotoRoom-1-400x500.png');
+}
+
+.back2 {
+    background-image: url('https://i.pinimg.com/236x/0f/59/e0/0f59e0eb3cbc4a6ee62da79397aa1e30.jpg');
+    transform: rotateY(180deg);
+}
+
+.front3 {
+    z-index: 2;
+    background-image: url('https://www.thecakeshop.co.nz/cdn/shop/products/image_b0290c28-acd5-4c5d-9ec5-c98cc2b08a1e_1024x1024@2x.jpg?v=1659850745');
+}
+
+.back3 {
+    background-image: url('https://www.thecakeshop.co.nz/cdn/shop/files/31953322-2372-4ED0-87FB-9B5B09F38C13_110x110@2x.jpg?v=1721881603');
+    transform: rotateY(180deg);
+}
+
+.front4 {
+    z-index: 2;
+    background-image: url('https://www.thecakeshop.co.nz/cdn/shop/files/IMG-3873_1024x1024@2x.jpg?v=1714892874');
+}
+
+.back4 {
+    background-image: url('https://jocakes.files.wordpress.com/2013/08/img_1295.jpg?w=640');
+    transform: rotateY(180deg);
+}
+
+.front5 {
+    z-index: 2;
+    background-image: url('https://i.pinimg.com/474x/87/68/fc/8768fc21b89704588c84976f0e6e39d6.jpg');
+}
+
+.back5 {
+    background-image: url('https://jojoscakes.com/media/k2/items/cache/2c3125eb8597b442fad87e2c031423e6_XL.jpg');
+    transform: rotateY(180deg);
+}
+
+.front6 {
+    z-index: 2;
+    background-image: url('https://i.pinimg.com/474x/50/af/d8/50afd88d95d9a4015703872d1de8b137.jpg');
+}
+
+.back6 {
+    background-image: url('https://i.pinimg.com/1200x/fb/d9/3e/fbd93e85ff97504c917291216b5dd83f.jpg');
+    transform: rotateY(180deg);
+}
+
+.page {
+    background-color: #ffebcd;
+    color: black;
+    z-index: 1;
+}
+
+.card:hover .cover {
+    transform: rotateY(-180deg);
+}
+
+.card:not(:hover) .cover {
+    transform: rotateY(0deg);
+}
+
+.page ul li {
+    margin-top: 18px;
+    margin-left: 35px;
+    font-size: 17px;
+}
+
+.book-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 250px;
+    width: 100%;
+    margin: 50px auto;
+}
+
+:root {
+    --card-height: 300px;
+    --card-width: calc(var(--card-height) / 1)
+}
+
+.card-box {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 36px;
+    perspective: 2500px;
+    margin: 0 50px;
+    cursor: pointer;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.wrapper-box {
+    transition: all 0.5s;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.wrapper-box::before,
+.wrapper-box::after {
+    content: '';
+    opacity: 0;
+    width: 100%;
+    height: 80px;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0;
+}
+
+.wrapper-box::before {
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(to top, transparent 46%, rgb(12, 13, 19, 0.5) 68%, rgb(12, 13, 19) 97%);
+}
+
+.wrapper-box::after {
+    bottom: 0;
+    opacity: 1;
+    background-image: linear-gradient(to top, transparent 46%, rgb(12, 13, 19, 0.5) 68%, rgb(12, 13, 19) 97%);
+}
+
+.character {
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all 0.5s;
+}
+
+.card-box:hover .wrapper-box {
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 0px 35px 32px -8px rgb(0, 0, 0, 0.75);
+}
+
+.card-box:hover .wrapper-box::after,
+.wrapper::before {
+    opacity: 1;
+}
+
+.card-box:hover .wrapper-box::after {
+    height: 120px;
+}
+
+.card-box:hover .wrapper-box::before {
+    opacity: 1;
+}
+
+.card-box:hover .character {
+    opacity: 1;
+    transform: translate3d((0%, -30%, -100px));
+}
+
+.card-box__container {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.video__container {
+    margin: 40px 50px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.questionboxs {
+    width: 100%;
+    height: 200px;
+}
+
+.problems {
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #313B90;
+    color: white;
+    display: flex;
+    gap: 20px;
+    width: 90%;
+    height: 40px;
+    margin: 30px auto;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.problems i {
+    font-size: 22px;
+}
+
+.questiontext {
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+}
+
+.problems:hover {
+    background-color: #33BCD0;
+    padding-left: 35px;
+    transition: 0.5s;
+}
+
+.answer {
+    border-radius: 8px;
+    background-color: #00ddeb;
+    color: white;
+    width: 90%;
+    height: 60px;
+    margin: 30px auto;
+    transition: 0.5s;
+    display: none;
+    font-size: 19px;
+    padding: 20px 20px;
+}
+
+/* ============================================ Main CSS ========================================== */
+
+
+/* ============================================ Footer CSS ======================================== */
+footer {
+    background-color: #1A2255;
+    height: 600px;
+    width: 100%;
+}
+
+.footer_a {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    margin: 400px 50px;
+}
+
+.footer_a a {
+    color: white;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.sheet_icon a {
+    text-decoration: none;
+    color: white;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.footer_container a {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-decoration: none;
+    font-family: Dancing Script, cursive;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin: 30px 240px;
+    width: 10%;
+    transition: 0.7s;
+}
+
+.footer_container a:hover {
+    color: #33BCD0;
+}
+
+.footer_sheet div p {
+    transition: 0.7s;
+    color: white;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.footer_sheet div {
+    display: flex;
+    margin-bottom: 70px;
+    margin-left: 750px;
+    color: white;
+    font-size: 1.5rem;
+    gap: 40px;
+}
+
+.footer_sheet {
+    margin-top: -680px;
+}
+
+.sheet_footer p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 210px;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.sheet_footer hr {
+    width: 70%;
+    margin: 10px auto;
+}
+
+.ri-mail-fill {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    margin: -43px 550px;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+.sheet_icon {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8rem;
+    gap: 125px;
+    margin-top: 140px;
+    transition: 0.7s;
+}
+
+/* ============================================ Footer CSS ======================================== */
+
+
+/* ============================================ Media Screen ====================================== */
+
+
+
+/* ============================================ Media Screen ====================================== */

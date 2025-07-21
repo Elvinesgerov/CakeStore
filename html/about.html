@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--============================================ WebSite Name =================================-->
+    <title>About</title>
+    <!--============================================ WebSite Name =================================-->
+
+    <!--============================================ CSS Link =====================================-->
+    <link rel="stylesheet" href="../css/about.css" />
+    <!--============================================ CSS Link =====================================-->
+
+    <!--============================================ WebSite Logo =================================-->
+    <link rel="shortcut icon" href="../image/logoFoto.webp" />
+    <!--============================================ WebSite Logo =================================-->
+
+    <!--============================================ RemixIcon CDN ================================-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" rel="stylesheet" />
+    <!--============================================ RemixIcon CDN ================================-->
+
+    <!--============================================ İ18n CDN =====================================-->
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+        rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/i18next/dist/umd/i18next.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <!--============================================ İ18n CDN =====================================-->
+
+    <!--============================================ Fontawesome CDN ==============================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--============================================ Fontawesome CDN ==============================-->
+</head>
+
+<body>
+    <!--============================================ Scrol Funtions =========================================-->
+    <div class="generally_scrol" id="goToTopButton" onclick="goToTop()">
+        <i class="ri-arrow-up-line"></i>
+    </div>
+    <!--============================================ Scrol Funtions =========================================-->
+
+
+    <!--============================================ Snow Funtions ==========================================-->
+    <div id="snow"></div>
+    <!--============================================ Snow Funtions ==========================================-->
+
+
+    <!--============================================ Header Sections ========================================-->
+    <header>
+        <div class="header_container">
+            <img class="logo" src="../image/logoFoto.webp" alt="logo" />
+            <div class="header_title">
+                <a href="../index.html" data-i18n="headerHome">Home</a>
+                <a href="../html/about.html" data-i18n="headerAbout">About</a>
+                <a href="../html/vacancies.html" data-i18n="headerVacancies">Vacancies</a>
+                <a href="../html/contact.html" data-i18n="headerContact">Contact</a>
+                <a href="../html/basket.html"><i class="ri-shopping-cart-2-fill"></i><sup
+                        style="color: blue; font-weight: 900;" id="sup">0</sup></a>
+                <a href="" class="change" data-i18n="headerChange">Change Languge</a>
+                <div class="darkmood">
+                    <i class="ri-moon-line"></i>
+                    <i class="ri-sun-line"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--============================================ Header Sections ========================================-->
+
+
+    <!--============================================ Main Sections ==========================================-->
+    <main>
+        <div class="zero_about">
+            <div>
+                <img src="../image/birthday.about.jpg" alt="Cake" />
+                <p data-i18n="text1">The Tatli Cake Shop specialises in exquisitely hand-crafted, premium celebration
+                    cakes
+                    for any occasion. We have a team of highly skilled cake designers and decorators who can create a
+                    truly
+                    personalised and memorable cake which is bound to delight at your special occasion. he Cake Shop
+                    sells a
+                    wide range of cake decorating accessories including edible goods, ribbons, sugarcraft materials,
+                    tools
+                    and equipment. To discuss your requirements in more detail with our team of designers.</p>
+            </div>
+            <div>
+                <p data-i18n="text2">We have been trading since 2000 in the historic city of Baku, Our shop is regularly
+                    featured in both local and national media. The Tatli Cake Shop is located within the historic
+                    Covered
+                    Towns and is a focal point for many of the guided walking tours that pass through the city as well
+                    as
+                    providing locals and tourists with an opportunity to watch our skilled cake artists at work. Our
+                    cakes
+                    are made from the highest quality ingredients sourced fresh from the best UK producers, many of
+                    which we
+                    have been working in partnership with since the business began</p>
+                <img src="../image/aboutfoto.jpg" alt="Foto" />
+            </div>
+            <div>
+                <img src="../image/çilek.jpg" alt="Cake" />
+                <p data-i18n="text3">You can choose and order any type of cake decoration in our cake shop . We are
+                    working
+                    professional , enthusiastic and energetic individuals team. So, they are ready to decorate, learning
+                    new
+                    decorating skills alongside experienced decorators, learning how to write messages on cakes for
+                    customer
+                    orders</p>
+            </div>
+            <div>
+                <p data-i18n="text4">Our shop is regularly featured in both local and national media. The Tatli Cake
+                    Shop is
+                    located within the historic Covered Towns and is a focal point for many of the guided walking tours
+                    that
+                    pass through the city as well as providing locals and tourists with an opportunity to watch our
+                    skilled
+                    cake artists at work. Our cakes are made from the highest quality ingredients sourced fresh from the
+                    best UK producers, many of which we have been working in partnership with since the business began
+                </p>
+                <img src="../image/CakeShops.avif" alt="Cake" />
+            </div>
+        </div>
+    </main>
+    <!--============================================ Main Sections ==========================================-->
+
+    <!--============================================ Footer Sections ========================================-->
+    <footer>
+        <div class="footer_container">
+            <div class="footer_a">
+                <a href="../html/contact.html" data-i18n="footerContact">Contact</a>
+                <a href="../html/about.html" data-i18n="footerAbout">About</a>
+                <a href="../html/vacancies.html" data-i18n="footerVacancies">Vacancies</a>
+                <a href="../index.html" data-i18n="footerHome">Home</a>
+            </div>
+        </div>
+        <div class="footer_sheet">
+            <div>
+                <p data-i18n="Nizami">Nizami: +994 55 551 60 01</p>
+                <p data-i18n="Merdakan">Mərdəkan: +994 55 551 60 02</p>
+            </div>
+            <div>
+                <p data-i18n="Yasamal">Yasamal: +994 55 551 60 03</p>
+                <p data-i18n="Bakixanov">Bakixanov: +994 55 551 60 04</p>
+            </div>
+        </div>
+        <div class="sheet_footer">
+            <p>e-mail : sweetcakes@gmail.com</p>
+            <hr />
+            <i class="ri-mail-fill"></i>
+        </div>
+        <div class="sheet_icon">
+            <a href="https://wa.me/+994503851383" class="ri-whatsapp-line" target="_blank"></a>
+            <a href="https://github.com/Elvinesgerov" class="ri-github-fill" target="_blank"></a>
+            <a href="https://www.linkedin.com/in/elvin-esgerov-5b0929290/" class="ri-linkedin-fill" target="_blank"></a>
+            <a href="https://www.instagram.com/esgerov.060" class="ri-instagram-line" target="_blank"></a>
+        </div>
+    </footer>
+    <!--============================================ Footer Sections ========================================-->
+    <script src="../js/about.js"></script>
+</body>
+
+</html>

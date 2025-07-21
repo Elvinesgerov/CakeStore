@@ -1,0 +1,366 @@
+/* ============================================ Font Style ==================================== */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* ============================================ Font Style ==================================== */
+
+/* ============================================ Began WebSite ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden
+}
+
+html{
+    height: 0px;
+}
+
+/* ============================================ Began WebSite ==================================== */
+
+
+/* ============================================ Scroll CSS ======================================= */
+::-webkit-scrollbar {
+    width: 7px;
+    background-color: #340606;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(120, 88, 50);
+}
+
+.generally_scrol {
+    border: 1px solid rgb(121, 40, 52);
+    border-radius: 15px;
+    width: 4%;
+    height: 56px;
+    background-color: rgb(226, 103, 124);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    font-size: 1.8rem;
+    right: 15px;
+    justify-content: center;
+    top: 90%;
+    color: white;
+    display: none;
+}
+
+/* ============================================ Scroll CSS ======================================= */
+
+
+/* ============================================ Dark Mood ======================================== */
+.darkmood {
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    padding: 6px 10px;
+    display: flex;
+    gap: 15px;
+    transition: 0.7s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.darkmood:hover {
+    background-color: black;
+    color: white;
+}
+
+.ri-moon-line,
+.ri-sun-line {
+    font-size: 1.5rem;
+}
+
+/* ============================================ Dark Mood ======================================== */
+
+
+/* ============================================ Snow CSS ========================================== */
+#snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+    width: 100%;
+}
+
+@keyframes animation {
+    to {
+        transform: translateY(210vh);
+    }
+
+}
+
+.snow {
+    position: absolute;
+    top: -10px;
+    font-size: 1em;
+    user-select: none;
+    animation: animation linear infinite;
+}
+
+/* ============================================ Snow CSS ========================================== */
+
+
+/* ============================================ Header CSS ======================================== */
+.header_container {
+    width: 100%;
+    height: 200px;
+    background-color: #540d0d;
+    color: white;
+    display: flex;
+    font-size: 1.8rem;
+    align-items: center;
+    gap: 80px;
+}
+
+.header_title {
+    display: flex;
+    gap: 75px;
+}
+
+.header_title a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.header_title a:hover {
+    color: rgb(240, 199, 148);
+}
+
+.change {
+    font-size: 1.3rem;
+    border: 1px solid rgb(78, 38, 38);
+    border-radius: 10px;
+    background-color: rgb(131, 83, 31);
+    font-style: italic;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 47px;
+    transition: 0.7s;
+}
+
+.change:hover {
+    background-color: white;
+    color: rgb(131, 83, 31) !important;
+}
+
+.logo {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 10px 15px;
+}
+
+.ri-shopping-cart-2-fill {
+    font-size: 1.8rem;
+}
+
+/* ============================================ Header CSS ======================================== */
+
+
+/* ============================================ Main CSS ========================================== */
+h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    font-size: 2.8rem;
+}
+
+.contact_input input {
+    width: 35%;
+    margin-left: 180px;
+    border-radius: 5px;
+    height: 45px;
+    padding: 10px;
+}
+
+.contact_input {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-top: 80px;
+    width: 950px;
+}
+
+.contact_input p {
+    margin-left: 200px;
+    font-size: 1.6rem;
+    color: green;
+    font-weight: 900;
+    display: none;
+}
+
+textarea {
+    width: 35%;
+    margin-left: 180px;
+    border-radius: 5px;
+    border: 2px solid;
+    height: 100px;
+    padding: 15px;
+}
+
+textarea::placeholder {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    width: 12%;
+    height: 40px;
+    background-color: rgb(154, 152, 150);
+    color: #b40d0d;
+    margin: 10px 300px;
+    font-size: 1rem;
+}
+
+button:hover {
+    color: white;
+    background-color: #540d0d;
+}
+
+.finish_container {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    font-size: 1.5rem;
+    margin-left: 880px;
+    text-align: center;
+    margin-top: -450px;
+}
+
+.icon {
+    display: flex;
+    gap: 15px;
+    font-size: 1.25rem;
+    margin-left: 240px;
+}
+
+.icon a {
+    text-decoration: none;
+    color: black;
+    color: 20px;
+    transition: 0.5s;
+}
+
+.icon a:hover {
+    color: blue;
+}
+
+/* ============================================ Main CSS ========================================== */
+
+
+
+/* ============================================ Footer CSS ======================================== */
+footer {
+    background-color: black;
+    height: 600px;
+    width: 100%;
+    margin: 290px 0;
+}
+
+.footer_a {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    margin: 70px 50px;
+}
+
+.sheet_icon a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer_container a {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-decoration: none;
+    font-family: Dancing Script, cursive;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin: 30px 240px;
+    width: 10%;
+    transition: 0.7s;
+}
+
+.footer_container a:hover {
+    color: rgb(196, 140, 68);
+}
+
+.footer_sheet div p {
+    transition: 0.7s;
+}
+
+.footer_sheet div p:hover {
+    color: rgb(196, 140, 68);
+}
+
+.footer_sheet div {
+    display: flex;
+    margin-bottom: 70px;
+    margin-left: 750px;
+    color: white;
+    font-size: 1.5rem;
+    gap: 40px;
+}
+
+.footer_sheet {
+    margin-top: -355px;
+}
+
+.sheet_footer p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: rgb(205, 108, 39);
+    margin-top: 210px;
+}
+
+.sheet_footer hr {
+    width: 70%;
+    margin: 10px auto;
+}
+
+.ri-mail-fill {
+    display: flex;
+    color: rgb(237, 192, 134);
+    font-size: 1.5rem;
+    margin: -43px 550px;
+}
+
+.sheet_icon {
+    display: flex;
+    justify-content: center;
+    color: rgb(128, 78, 16);
+    font-size: 1.8rem;
+    gap: 125px;
+    margin-top: 140px;
+    transition: 0.7s;
+}
+
+.sheet_icon a:hover {
+    color: #d91717;
+    transition: 0.7s;
+}
+
+/* ============================================ Footer CSS ======================================== */
+
+
+/* ============================================ Media Screen ====================================== */
+
+
+
+/* ============================================ Media Screen ====================================== */

@@ -1,14 +1,14 @@
 // =========================================== Variables ==============================
-let sup = document.querySelector("#sup");
-let header = document.querySelector("header");
-let main = document.querySelector("main");
-let footer = document.querySelector("footer");
-let snow = document.querySelector("#snow");
-let body = document.querySelector("body");
-let darkMood = document.querySelector(".darkmood");
-let login = document.querySelector(".login");
-let headerContainer = document.querySelector(".header_container");
-let change = document.querySelector(".change");
+const sup = document.querySelector("#sup");
+const header = document.querySelector("header");
+const main = document.querySelector("main");
+const footer = document.querySelector("footer");
+const snow = document.querySelector("#snow");
+const body = document.querySelector("body");
+const darkMood = document.querySelector(".darkmood");
+const login = document.querySelector(".login");
+const headerContainer = document.querySelector(".header_container");
+const change = document.querySelector(".change");
 const sectionContainer = document.querySelector(".section_container");
 const sweetContainer = document.querySelector(".sweet_container h2");
 const sweetMain = document.querySelectorAll(".sweet_main div");

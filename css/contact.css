@@ -10,10 +10,12 @@
 }
 
 body {
-    overflow-x: hidden
+    overflow-x: hidden;
+    background-color: rgb(53, 53, 75);
+    color: white;
 }
 
-html{
+html {
     height: 0px;
 }
 
@@ -22,30 +24,36 @@ html{
 
 /* ============================================ Scroll CSS ======================================= */
 ::-webkit-scrollbar {
-    width: 7px;
-    background-color: #340606;
+    width: 10px;
+    background-color: #1A2255;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(120, 88, 50);
+    background-color: #313B90;
 }
 
 .generally_scrol {
-    border: 1px solid rgb(121, 40, 52);
+    border: none;
     border-radius: 15px;
     width: 4%;
     height: 56px;
-    background-color: rgb(226, 103, 124);
+    background-color: #313B90;
     display: flex;
     align-items: center;
     position: fixed;
-    z-index: 1;
+    z-index: 15;
     font-size: 1.8rem;
     right: 15px;
     justify-content: center;
     top: 90%;
     color: white;
     display: none;
+    transition: 0.6s;
+}
+
+.generally_scrol:hover {
+    background-color: #33BCD0;
+    cursor: pointer;
 }
 
 /* ============================================ Scroll CSS ======================================= */
@@ -53,21 +61,24 @@ html{
 
 /* ============================================ Dark Mood ======================================== */
 .darkmood {
-    width: 80px;
+    width: 90px;
     height: 40px;
-    background-color: white;
-    color: black;
+    background-color: #313B90;
+    color: white;
     border-radius: 15px;
     padding: 6px 10px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 15px;
     transition: 0.7s;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .darkmood:hover {
-    background-color: black;
+    background-color: #33BCD0;
     color: white;
+    cursor: pointer;
 }
 
 .ri-moon-line,
@@ -110,33 +121,35 @@ html{
 .header_container {
     width: 100%;
     height: 200px;
-    background-color: #540d0d;
+    background-color: #1A2255;
     color: white;
     display: flex;
     font-size: 1.8rem;
     align-items: center;
-    gap: 80px;
+    gap: 10px;
 }
 
 .header_title {
     display: flex;
-    gap: 75px;
+    gap: 63px;
 }
 
 .header_title a {
     text-decoration: none;
     color: aliceblue;
+    transition: 0.7s;
 }
 
+
 .header_title a:hover {
-    color: rgb(240, 199, 148);
+    color: #33BCD0;
 }
 
 .change {
     font-size: 1.3rem;
-    border: 1px solid rgb(78, 38, 38);
+    border: none;
     border-radius: 10px;
-    background-color: rgb(131, 83, 31);
+    background-color: #313B90;
     font-style: italic;
     color: black;
     display: flex;
@@ -148,8 +161,8 @@ html{
 }
 
 .change:hover {
-    background-color: white;
-    color: rgb(131, 83, 31) !important;
+    background-color: #33BCD0;
+    color: white !important;
 }
 
 .logo {
@@ -174,12 +187,47 @@ h2 {
     font-size: 2.8rem;
 }
 
-.contact_input input {
-    width: 35%;
-    margin-left: 180px;
-    border-radius: 5px;
-    height: 45px;
-    padding: 10px;
+h2,
+.finish_container p,
+.icon a,
+.footer_a a,
+.sheet_icon a,
+.footer_sheet div p,
+.sheet_footer p,
+.ri-mail-fill,
+.contact_input p {
+    color: white;
+    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
+    background-size: 600vw 600vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+
+@keyframes slide {
+    0% {
+        background-position-x: 0%;
+    }
+
+    100% {
+        background-position-x: 600vw;
+    }
+}
+
+.contact_input input,
+textarea {
+    background-color: initial;
+    border-radius: 0 30px;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 30px;
+    outline: none;
+    padding: 9px 5px;
+    text-indent: 13px;
+    width: 270px;
+    margin-left: 20%;
+    box-shadow: 3px 7px 13px 7px rgba(138, 43, 226, 0.69);
+    resize: none;
 }
 
 .contact_input {
@@ -193,18 +241,8 @@ h2 {
 .contact_input p {
     margin-left: 200px;
     font-size: 1.6rem;
-    color: green;
     font-weight: 900;
     display: none;
-}
-
-textarea {
-    width: 35%;
-    margin-left: 180px;
-    border-radius: 5px;
-    border: 2px solid;
-    height: 100px;
-    padding: 15px;
 }
 
 textarea::placeholder {
@@ -214,16 +252,19 @@ textarea::placeholder {
 }
 
 button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    width: 12%;
-    height: 40px;
-    background-color: rgb(154, 152, 150);
-    color: #b40d0d;
-    margin: 10px 300px;
-    font-size: 1rem;
+    background: linear-gradient(75deg, blue, #6d036d);
+    border: 0;
+    border-radius: 0 20px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    padding: 12px 26px;
+    margin-left: 200px;
+    margin-top: 30px;
+    height: 45px;
+    transition: 1.5s;
+    width: 200px;
 }
 
 button:hover {
@@ -265,22 +306,24 @@ button:hover {
 
 /* ============================================ Footer CSS ======================================== */
 footer {
-    background-color: black;
+    background-color: #1A2255;
     height: 600px;
     width: 100%;
-    margin: 290px 0;
 }
 
 .footer_a {
     display: flex;
     flex-direction: column;
     font-size: 1.6rem;
-    margin: 70px 50px;
+    margin: 400px 50px;
+}
+
+.sheet_footer {
+    margin-top: 150px;
 }
 
 .sheet_icon a {
     text-decoration: none;
-    color: white;
 }
 
 .footer_container a {
@@ -297,15 +340,11 @@ footer {
 }
 
 .footer_container a:hover {
-    color: rgb(196, 140, 68);
+    color: #33BCD0;
 }
 
 .footer_sheet div p {
     transition: 0.7s;
-}
-
-.footer_sheet div p:hover {
-    color: rgb(196, 140, 68);
 }
 
 .footer_sheet div {
@@ -318,15 +357,15 @@ footer {
 }
 
 .footer_sheet {
-    margin-top: -355px;
+    margin-top: -680px;
 }
 
 .sheet_footer p {
     display: flex;
     justify-content: center;
     font-size: 1.5rem;
-    color: rgb(205, 108, 39);
-    margin-top: 210px;
+    margin-left: 50px;
+    align-items: center;
 }
 
 .sheet_footer hr {
@@ -336,23 +375,15 @@ footer {
 
 .ri-mail-fill {
     display: flex;
-    color: rgb(237, 192, 134);
-    font-size: 1.5rem;
-    margin: -43px 550px;
+    align-items: center;
 }
 
 .sheet_icon {
     display: flex;
     justify-content: center;
-    color: rgb(128, 78, 16);
     font-size: 1.8rem;
     gap: 125px;
-    margin-top: 140px;
-    transition: 0.7s;
-}
-
-.sheet_icon a:hover {
-    color: #d91717;
+    margin-top: 40px;
     transition: 0.7s;
 }
 

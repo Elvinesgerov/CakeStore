@@ -1,17 +1,18 @@
 // =========================================== Variables ==============================
-let snow = document.querySelector("#snow");
-let darkMood = document.querySelector(".darkmood");
-let headerContainer = document.querySelector(".header_container");
-let iconA = document.querySelectorAll(".icon a");
-let contact = document.querySelector(".contact_input button");
-let contactP = document.querySelector(".contact_input p");
-let contactInput = document.querySelectorAll(".contact_input input");
-let numberinput = document.querySelector(".numberinput");
-let emailinput = document.querySelector(".emailinput");
-let contactTextarea = document.querySelector(".contact_input textarea");
-let change = document.querySelector(".change");
-let body = document.querySelector("body");
-let footer = document.querySelector("footer");
+const snow = document.querySelector("#snow");
+const darkMood = document.querySelector(".darkmood");
+const headerContainer = document.querySelector(".header_container");
+const iconA = document.querySelectorAll(".icon a");
+const contact = document.querySelector(".contact_input button");
+const contactP = document.querySelector(".contact_input p");
+const contactInput = document.querySelectorAll(".contact_input input");
+const numberinput = document.querySelector(".numberinput");
+const emailinput = document.querySelector(".emailinput");
+const contactTextarea = document.querySelector(".contact_input textarea");
+const change = document.querySelector(".change");
+const body = document.querySelector("body");
+const footer = document.querySelector("footer");
+const login = document.querySelector(".login");
 let flag = true;
 let snowNumber = 150;
 // =========================================== Variables ===============================
@@ -24,7 +25,7 @@ function createSnow() {
   div.style.left = `${Math.random() * 90}vw`;
   div.style.animationDuration = `${20}s`;
   div.style.fontSize = `${1.2}em`;
-  div.style.color = "red";
+  div.style.color = "white";
   snow.appendChild(div);
   div.addEventListener("animationend", () => {
     div.remove();
@@ -39,56 +40,36 @@ for (let i = 0; i < snowNumber; i++) {
 
 // =========================================== Contact JS =============================
 contact.addEventListener("click", () => {
-  let email = emailinput.value.trim().endsWith("com");
-  let numberstart = numberinput.value.trim().startsWith("+994");
+  let emailValid = emailinput.value.trim().endsWith("com");
+  let numberValue = numberinput.value.trim();
+  let numberValid = numberValue.startsWith("994") && numberValue.length == 12;
+  let allFieldsFilled = Array.from(contactInput).every(item => item.value.trim() !== "") &&
+    contactTextarea.value.trim() !== "";
 
-  contactInput.forEach((item) => {
-    if (
-      item.value.trim() != "" &&
-      contactTextarea.value.trim() != "" &&
-      numberinput.value.trim().length >= 13 &&
-      email &&
-      numberstart
-    ) {
-      if (change.innerHTML == "Change Language") {
-        contactP.innerHTML = "Information Sent";
-        contactP.style.display = "block";
-        item.value = "";
-        contactTextarea.value = "";
-      } else if (change.innerHTML == "Dili Dəyişdirin") {
-        contactP.innerHTML = "Məlumat Göndərilib";
-        contactP.style.display = "block";
-      }
-    } else if (item.value.trim() == "" || contactTextarea.value.trim() == "") {
-      if (change.innerText == "Dili Dəyişdirin") {
-        contactP.innerHTML = "Her bir alani doldurun!";
-        contactP.style.display = "block";
-      } else if (change.innerHTML == "Change Language") {
-        contactP.innerHTML = "Fill in every field!";
-        contactP.style.display = "block";
-      }
-    } else if (numberinput.value.trim().length < 13) {
-      if (change.innerText == "Dili Dəyişdirin") {
-        contactP.innerHTML = "Nömre minimum 13 reqemli olmalidir";
-        contactP.style.display = "block";
-      } else if (change.innerHTML == "Change Language") {
-        contactP.innerHTML = "The number must be at least 13 digits long";
-        contactP.style.display = "block";
-      }
-    } else if (!numberstart) {
-      contactP.innerHTML = "Nömrə '+994' ile baslamalıdır";
-      contactP.style.display = "block";
-    } else if (!email) {
-      if (change.innerText == "Dili Dəyişdirin") {
-        contactP.innerHTML = "Emailin sonu 'com' ile bitmelidir!";
-        contactP.style.display = "block";
-      } else if (change.innerHTML == "Change Language") {
-        contactP.innerHTML = "Email must end with 'com'!";
-        contactP.style.display = "block";
-      }
-    }
-  });
+  if (!allFieldsFilled) {
+    contactP.innerHTML = change.innerText == "Dili Dəyişdirin"
+      ? "Her bir alani doldurun!"
+      : "Fill in every field!";
+  } else if (!numberValid) {
+    contactP.innerHTML = change.innerText == "Dili Dəyişdirin"
+      ? "Nömre minimum 13 reqemli olmalidir ve '+994' ile başlamalıdır"
+      : "Number must be at least 13 digits and start with '994'";
+  } else if (!emailValid) {
+    contactP.innerHTML = change.innerText == "Dili Dəyişdirin"
+      ? "Emailin sonu 'com' ile bitmelidir!"
+      : "Email must end with 'com'!";
+  } else {
+    contactP.innerHTML = change.innerText == "Dili Dəyişdirin"
+      ? "Məlumat Göndərildi"
+      : "Information Sent";
+
+    contactInput.forEach(item => item.value = "");
+    contactTextarea.value = "";
+  }
+
+  contactP.style.display = "block";
 });
+
 // =========================================== Contact JS =============================
 
 // =========================================== DarkMood JS ============================
@@ -96,7 +77,13 @@ darkMood.addEventListener("click", () => {
   if (flag == true) {
     darkMood.style.backgroundColor = "black";
     darkMood.style.color = "white";
-    darkMood.style.boxShadow = "10px 5px 5px brown";
+    darkMood.style.boxShadow = "10px 5px 5px #33BCD0";
+    login.style.backgroundColor = "black";
+    login.style.color = "white";
+    login.style.boxShadow = "10px 5px 5px #33BCD0";
+    change.style.boxShadow = "10px 5px 5px #33BCD0";
+    change.style.backgroundColor = "black";
+    change.style.color = "white";
     headerContainer.style.backgroundColor = "black";
     iconA.forEach((item) => {
       item.style.color = "white";
@@ -106,17 +93,24 @@ darkMood.addEventListener("click", () => {
     footer.style.backgroundColor = "rgb(38, 38, 38)";
     flag = false;
   } else if (flag == false) {
-    darkMood.style.backgroundColor = "white";
-    darkMood.style.color = "black";
-    body.style.color = "black";
+    darkMood.style.backgroundColor = "#313B90";
+    darkMood.style.color = "white";
+    darkMood.style.boxShadow =
+      "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
+    login.style.backgroundColor = "#313B90";
+    login.style.color = "white";
+    login.style.boxShadow =
+      "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
+    change.style.boxShadow =
+      "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
+    change.style.backgroundColor = "#313B90";
+    change.style.color = "white";
+    body.style.backgroundColor = "rgb(53, 53, 75)";
+    headerContainer.style.backgroundColor = "#1A2255";
     iconA.forEach((item) => {
       item.style.color = "black";
     });
-    darkMood.style.boxShadow =
-      "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
-    headerContainer.style.backgroundColor = "#540d0d";
-    body.style.backgroundColor = "white";
-    footer.style.backgroundColor = "black";
+    footer.style.backgroundColor = "#1A2255";
     flag = true;
   }
 });

@@ -240,6 +240,7 @@ body {
 }
 
 /* ============================================ Notification animation =========================== */
+
 /* ============================================ Dark Mood ======================================== */
 .darkmood {
     width: 90px;
@@ -1778,7 +1779,11 @@ footer {
     margin: 400px 50px;
 }
 
-.footer_a a {
+.footer_a a,
+.sheet_icon a,
+.footer_sheet div p,
+.sheet_footer p,
+.ri-mail-fill {
     color: white;
     background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
     background-size: 600vw 600vw;
@@ -1789,12 +1794,6 @@ footer {
 
 .sheet_icon a {
     text-decoration: none;
-    color: white;
-    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
-    background-size: 600vw 600vw;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    animation: slide 10s linear infinite forwards;
 }
 
 .footer_container a {
@@ -1816,12 +1815,6 @@ footer {
 
 .footer_sheet div p {
     transition: 0.7s;
-    color: white;
-    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
-    background-size: 600vw 600vw;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    animation: slide 10s linear infinite forwards;
 }
 
 .footer_sheet div {
@@ -1837,19 +1830,15 @@ footer {
     margin-top: -680px;
 }
 
+.sheet_footer{
+    margin-top: 150px;
+}
+
 .sheet_footer p {
     display: flex;
     justify-content: center;
     font-size: 1.5rem;
-    color: white;
-    margin-top: 210px;
-    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
-    background-size: 600vw 600vw;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    animation: slide 10s linear infinite forwards;
     margin-left: 50px;
-    display: flex;
     align-items: center;
 }
 
@@ -1861,14 +1850,6 @@ footer {
 .ri-mail-fill {
     display: flex;
     align-items: center;
-    color: white;
-    font-size: 1.5rem;
-    margin: -43px 550px;
-    background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
-    background-size: 600vw 600vw;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    animation: slide 10s linear infinite forwards;
 }
 
 .sheet_icon {
@@ -1876,10 +1857,9 @@ footer {
     justify-content: center;
     font-size: 1.8rem;
     gap: 125px;
-    margin-top: 140px;
+    margin-top: 10px;
     transition: 0.7s;
 }
-
 /* ============================================ Footer CSS ======================================== */
 
 

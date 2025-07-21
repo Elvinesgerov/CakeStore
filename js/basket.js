@@ -1,12 +1,14 @@
 // =========================================== Variables ==============================
-let main = document.querySelector("main");
-let mainH2 = document.querySelector("main h2");
-let body = document.querySelector("body");
-let total = document.createElement("div");
-let snow = document.querySelector("#snow");
-let darkMood = document.querySelector(".darkmood");
-let sup = document.querySelector("#sup");
-let headerContainer = document.querySelector(".header_container");
+const main = document.querySelector("main");
+const mainH2 = document.querySelector("main h2");
+const body = document.querySelector("body");
+const total = document.createElement("div");
+const snow = document.querySelector("#snow");
+const darkMood = document.querySelector(".darkmood");
+const sup = document.querySelector("#sup");
+const change = document.querySelector(".change"); 
+const headerContainer = document.querySelector(".header_container");
+const login = document.querySelector(".login");
 let basket = JSON.parse(localStorage.getItem("basket")) || [];
 let jsbasket = JSON.parse(localStorage.getItem("jsbasket")) || [];
 let totalAmount = 0;
@@ -22,7 +24,7 @@ function createSnow() {
   div.style.left = `${Math.random() * 90}vw`;
   div.style.animationDuration = `${15}s`;
   div.style.fontSize = `${1.2}em`;
-  div.style.color = "red";
+  div.style.color = "white";
 
   snow.appendChild(div);
   div.addEventListener("animationend", () => {
@@ -41,19 +43,32 @@ darkMood.addEventListener("click", () => {
   if (flag == true) {
     darkMood.style.backgroundColor = "black";
     darkMood.style.color = "white";
-    darkMood.style.boxShadow = "10px 5px 5px brown";
+    darkMood.style.boxShadow = "10px 5px 5px #33BCD0";
+    login.style.backgroundColor = "black";
+    login.style.color = "white";
+    login.style.boxShadow = "10px 5px 5px #33BCD0";
+    change.style.boxShadow = "10px 5px 5px #33BCD0";
+    change.style.backgroundColor = "black";
+    change.style.color = "white";
     headerContainer.style.backgroundColor = "black";
     body.style.backgroundColor = "rgb(35, 35, 35)";
     body.style.color = "white";
     flag = false;
   } else if (flag == false) {
-    darkMood.style.backgroundColor = "white";
-    darkMood.style.color = "black";
+    darkMood.style.backgroundColor = "#313B90";
+    darkMood.style.color = "white";
     darkMood.style.boxShadow =
       "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
-    headerContainer.style.backgroundColor = "#540d0d";
-    body.style.backgroundColor = "white";
-    body.style.color = "black";
+    login.style.backgroundColor = "#313B90";
+    login.style.color = "white";
+    login.style.boxShadow =
+      "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
+    change.style.boxShadow =
+      "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
+    change.style.backgroundColor = "#313B90";
+    change.style.color = "white";
+    body.style.backgroundColor = "rgb(53, 53, 75)";
+    headerContainer.style.backgroundColor = "#1A2255";
     flag = true;
   }
 });

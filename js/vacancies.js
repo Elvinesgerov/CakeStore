@@ -1,32 +1,35 @@
 // =========================================== Variables ==============================
-let snow = document.querySelector('#snow');
-let darkMood = document.querySelector('.darkmood');
-let headerContainer = document.querySelector('.header_container');
-let change = document.querySelector(".change")
-let main = document.querySelector("main")
-let body = document.querySelector('body');
-let footer = document.querySelector('footer');
-let decoratorOne = document.querySelector(".decoratorOne");
+const snow = document.querySelector('#snow');
+const darkMood = document.querySelector('.darkmood');
+const headerContainer = document.querySelector('.header_container');
+const change = document.querySelector(".change")
+const main = document.querySelector("main")
+const body = document.querySelector('body');
+const footer = document.querySelector('footer');
+const decoratorOne = document.querySelector(".decoratorOne");
+const input = document.querySelector(".search input")
 let flag = true;
 let snowNumber = 150;
 // =========================================== Variables ===============================
 
 
 // =========================================== Search =================================
-// function Searce() {
-//  let filter = document.querySelector(".search input").value.toUpperCase();
-//  let items = document.querySelectorAll(".decorator");
+function Searce() {
+ const filter = input.value.toUpperCase();
+ const items = document.querySelectorAll(".decorator");
 
-//  items.forEach(item => {
-//   let value = item.querySelector("h3").textContent.toUpperCase();
-//   if (value.indexOf(filter) > -1) {
-//    item.style.display = "";
-//   }
-//   else {
-//    item.style.display = "none";
-//   }
-//  });
-// }
+ items.forEach(item => {
+  let value = item.querySelector("h3").textContent.toUpperCase();
+  if (value.indexOf(filter) > -1) {
+   item.style.display = "";
+  } else {
+   item.style.display = "none";
+  }
+ });
+}
+
+
+input.addEventListener("input", Searce)
 // =========================================== Search =================================
 
 

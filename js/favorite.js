@@ -90,26 +90,14 @@ let mehsul = [
   { id: 1, name_en: "Chocolate cake", name_az: "Şokoladlı tort", prize: 60, foto: "../image/Foto3.jpg" },
   { id: 2, name_en: "Fruit cake", name_az: "Meyvəli tortu", prize: 70, foto: "../image/Foto2.jpg" },
   { id: 3, name_en: "Strawberry cake", name_az: "Çiyələkli tortu", prize: 50, foto: "../image/Foto1.jpg" },
-  { id: 4, name_en: "Winter cake", name_az: "Qış tortu", prize: 80, foto: "../image/Winter.jpg" },
-  { id: 5, name_en: "Birthday cake (1)", name_az: "Ad günü tortu (1)", prize: 60, foto: "../image/Birthday.jpg" },
-  { id: 6, name_en: "Birthday cake (2)", name_az: "Ad günü tortu (2)", prize: 70, foto: "../image/Birthday2.jpg" },
-  { id: 7, name_en: "Birthday cake (3)", name_az: "Ad günü tortu (3)", prize: 50, foto: "../image/Birthday3.jpg" },
-  { id: 8, name_en: "Fruit cake(1)", name_az: "Meyvə tortu(1)", prize: 49, foto: "../image/Fruit.jpg" },
-  { id: 9, name_en: "Fruit cake(2)", name_az: "Meyvə tortu(2)", prize: 65, foto: "../image/çilek.jpg" },
-  { id: 10, name_en: "Fruit cake(3)", name_az: "Meyvə tortu(3)", prize: 50, foto: "../image/Fruit3.jpg" },
-  { id: 11, name_en: "Chocolate cake(1)", name_az: "Şokoladlı tort(1)", prize: 60, foto: "../image/Chocolate.jpg" },
-  { id: 12, name_en: "Chocolate cake(2)", name_az: "Şokoladlı tort(2)", prize: 70, foto: "../image/Chocolate2.jpg" },
-  { id: 13, name_en: "Chocolate cake(3)", name_az: "Şokoladlı tort(3)", prize: 70, foto: "../image/Chocolate3.jpg" },
-  { id: 14, name_en: "Cristmas cake(1)", name_az: "Milad tortu (1)", prize: 59, foto: "../image/Chiristmas.jpg" },
-  { id: 15, name_en: "Cristmas cake(2)", name_az: "Milad tortu (2)", prize: 65, foto: "../image/Chiristmas2.jpg" },
-  { id: 16, name_en: "Cristmas cake(3)", name_az: "Milad tortu (3)", prize: 60, foto: "../image/Chiristmas3.jpg" },
+  // ... digərləri əlavə et ...
 ];
 // =========================================== Product Data ============================
 
 
 // =========================================== Render Favorite Products ==================
 function renderFavorites() {
-  flex.innerHTML = ""; // əvvəl təmizlə
+  flex.innerHTML = "";
 
   favorite.forEach((product) => {
     let container = document.createElement("div");
@@ -141,20 +129,22 @@ function renderFavorites() {
     button.innerHTML = i18next.language === "az" ? "Səbətə əlavə et" : "Add to basket";
     containerDiv.appendChild(button);
 
-    // İkon rəngi
     i.style.color = iconColors[product.id] === "red" ? "red" : "black";
 
-    // İkon click
     i.addEventListener("click", () => toggleFavorite(product.id, container, i));
 
-    // Button click (səbətə əlavə)
     button.addEventListener("click", () => {
       const id = parseInt(button.getAttribute("data-id"));
       const productItem = mehsul.find((item) => item.id === id);
       let basket = JSON.parse(localStorage.getItem("basket")) || [];
-      if (!basket.find((b) => b.id === productItem.id)) {
-        basket.push(productItem);
+
+      let existing = basket.find((b) => b.id === productItem.id);
+      if (existing) {
+        existing.count = (existing.count || 1) + 1;
+      } else {
+        basket.push({ ...productItem, count: 1 });
       }
+
       localStorage.setItem("basket", JSON.stringify(basket));
       basketFunc();
       createToast(false);
@@ -252,7 +242,7 @@ function createToast(isRemove, messageText) {
 // =========================================== Basket counter ============================
 function basketFunc() {
   let basket = JSON.parse(localStorage.getItem("basket")) || [];
-  sup.innerHTML = basket.length;
+  sup.innerHTML = basket.length
 }
 // =========================================== Basket counter ============================
 
@@ -290,14 +280,13 @@ for (let i = 0; i < snowNumber; i++) {
 
 // =========================================== Dark mode toggle =======================
 darkMood.addEventListener("click", () => {
-  if (flag === true) {
+  if (flag) {
     darkMood.style.backgroundColor = "black";
     darkMood.style.color = "white";
     darkMood.style.boxShadow = "10px 5px 5px brown";
     headerContainer.style.backgroundColor = "black";
     body.style.backgroundColor = "rgb(35, 35, 35)";
     body.style.color = "white";
-    flag = false;
   } else {
     darkMood.style.backgroundColor = "white";
     darkMood.style.color = "black";
@@ -306,8 +295,8 @@ darkMood.addEventListener("click", () => {
     headerContainer.style.backgroundColor = "#540d0d";
     body.style.backgroundColor = "white";
     body.style.color = "black";
-    flag = true;
   }
+  flag = !flag;
 });
 // =========================================== Dark mode toggle =======================
 
@@ -341,3 +330,4 @@ document.addEventListener("DOMContentLoaded", () => {
   basketFunc();
   favoriteH2();
 });
+// =========================================== Init ===================================

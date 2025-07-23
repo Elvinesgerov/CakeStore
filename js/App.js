@@ -182,56 +182,60 @@ function goToTop() {
 // =========================================== Scroll JS ==============================
 
 // =========================================== Basket JS ==============================
+let mehsul = [
+  { id: 1, name_en: "Chocolate cake", name_az: "Şokoladlı tort", prize: 15, foto: "../image/Foto3.jpg" },
+  { id: 2, name_en: "Fruit cake", name_az: "Meyvəli tortu", prize: 18, foto: "../image/Foto2.jpg" },
+  { id: 3, name_en: "Strawberry cake", name_az: "Çiyələkli tortu", prize: 20, foto: "../image/Foto1.jpg" },
+  { id: 4, name_en: "Winter cake", name_az: "Qış tortu", prize: 16, foto: "../image/Winter.jpg" },
+  { id: 5, name_en: "Birthday cake (1)", name_az: "Ad günü tortu (1)", prize: 15, foto: "../image/Birthday.jpg" },
+  { id: 6, name_en: "Birthday cake (2)", name_az: "Ad günü tortu (2)", prize: 15, foto: "../image/Birthday2.jpg" },
+  { id: 7, name_en: "Birthday cake (3)", name_az: "Ad günü tortu (3)", prize: 15, foto: "../image/Birthday3.jpg" },
+  { id: 8, name_en: "Fruit cake(1)", name_az: "Meyvə tortu(1)", prize: 20, foto: "../image/Fruit.jpg" },
+  { id: 9, name_en: "Fruit cake(2)", name_az: "Meyvə tortu(2)", prize: 20, foto: "../image/çilek.jpg" },
+  { id: 10, name_en: "Fruit cake(3)", name_az: "Meyvə tortu(3)", prize: 20, foto: "../image/Fruit3.jpg" },
+  { id: 11, name_en: "Chocolate cake(1)", name_az: "Şokoladlı tort(1)", prize: 16, foto: "../image/Chocolate.jpg" },
+  { id: 12, name_en: "Chocolate cake(2)", name_az: "Şokoladlı tort(2)", prize: 16, foto: "../image/Chocolate2.jpg" },
+  { id: 13, name_en: "Chocolate cake(3)", name_az: "Şokoladlı tort(3)", prize: 16, foto: "../image/Chocolate3.jpg" },
+  { id: 14, name_en: "Cristmas cake(1)", name_az: "Milad tortu (1)", prize: 18, foto: "../image/Chiristmas.jpg" },
+  { id: 15, name_en: "Cristmas cake(2)", name_az: "Milad tortu (2)", prize: 18, foto: "../image/Chiristmas2.jpg" },
+  { id: 16, name_en: "Cristmas cake(3)", name_az: "Milad tortu (3)", prize: 18, foto: "../image/Chiristmas3.jpg" },
+];
+
 if (!localStorage.getItem("basket")) {
   localStorage.setItem("basket", JSON.stringify([]));
 }
 
-let mehsul = [
-  { id: 1, name_en: "Chocolate cake", name_az: "Şokoladlı tort", prize: 60, foto: "../image/Foto3.jpg" },
-  { id: 2, name_en: "Fruit cake", name_az: "Meyvəli tortu", prize: 70, foto: "../image/Foto2.jpg" },
-  { id: 3, name_en: "Strawberry cake", name_az: "Çiyələkli tortu", prize: 50, foto: "../image/Foto1.jpg" },
-  { id: 4, name_en: "Winter cake", name_az: "Qış tortu", prize: 80, foto: "../image/Winter.jpg" },
-  { id: 5, name_en: "Birthday cake (1)", name_az: "Ad günü tortu (1)", prize: 60, foto: "../image/Birthday.jpg" },
-  { id: 6, name_en: "Birthday cake (2)", name_az: "Ad günü tortu (2)", prize: 70, foto: "../image/Birthday2.jpg" },
-  { id: 7, name_en: "Birthday cake (3)", name_az: "Ad günü tortu (3)", prize: 50, foto: "../image/Birthday3.jpg" },
-  { id: 8, name_en: "Fruit cake(1)", name_az: "Meyvə tortu(1)", prize: 49, foto: "../image/Fruit.jpg" },
-  { id: 9, name_en: "Fruit cake(2)", name_az: "Meyvə tortu(2)", prize: 65, foto: "../image/çilek.jpg" },
-  { id: 10, name_en: "Fruit cake(3)", name_az: "Meyvə tortu(3)", prize: 50, foto: "../image/Fruit3.jpg" },
-  { id: 11, name_en: "Chocolate cake(1)", name_az: "Şokoladlı tort(1)", prize: 60, foto: "../image/Chocolate.jpg" },
-  { id: 12, name_en: "Chocolate cake(2)", name_az: "Şokoladlı tort(2)", prize: 70, foto: "../image/Chocolate2.jpg" },
-  { id: 13, name_en: "Chocolate cake(3)", name_az: "Şokoladlı tort(3)", prize: 70, foto: "../image/Chocolate3.jpg" },
-  { id: 14, name_en: "Cristmas cake(1)", name_az: "Milad tortu (1)", prize: 59, foto: "../image/Chiristmas.jpg" },
-  { id: 15, name_en: "Cristmas cake(2)", name_az: "Milad tortu (2)", prize: 65, foto: "../image/Chiristmas2.jpg" },
-  { id: 16, name_en: "Cristmas cake(3)", name_az: "Milad tortu (3)", prize: 60, foto: "../image/Chiristmas3.jpg" },
-];
-
 let basket;
+
 sweet_mainButton.forEach((button) => {
   button.addEventListener("click", () => {
-    sebetfunc(button)
-    initSweetToasts()
-  })
+    sebetfunc(button);
+    initSweetToasts();
+  });
 });
 
 function sebetfunc(params) {
   const id = parseInt(params.getAttribute("data-id"));
   const product = mehsul.find((item) => item.id == id);
+
   basket = JSON.parse(localStorage.getItem("basket"));
-  if (!basket.find((b) => b.id == product.id)) {
-    basket.push(product);
+
+  const existingProduct = basket.find((b) => b.id === product.id);
+  if (existingProduct) {
+    existingProduct.count += 1;
+  } else {
+    basket.push({ ...product, count: 1 });
   }
+
   localStorage.setItem("basket", JSON.stringify(basket));
   basketFunc();
 }
 
 function basketFunc() {
   basket = JSON.parse(localStorage.getItem("basket"));
-  sup.innerHTML = basket.length;
+  sup.innerHTML = basket.length
 }
 basketFunc();
-
-// console.log(localStorage.clear());
-
 
 // =========================================== Basket JS ==============================
 
@@ -1036,6 +1040,12 @@ problems.forEach((problem, index) => {
 if (!localStorage.getItem("jsbasket")) {
   localStorage.setItem("jsbasket", JSON.stringify([]));
 }
+if (!localStorage.getItem("basket")) {
+  localStorage.setItem("basket", JSON.stringify([]));
+}
+
+let selectedSize = 1;
+let jsbasket = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.querySelector('.jsmodal');
@@ -1044,7 +1054,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalSmallImage = document.getElementById('modal-small-image');
   const modalnumber = document.getElementById('modalnumber');
   const pricespan = document.getElementById('price-span');
-  let selectedSize = 1;
+  const modalTitle = document.getElementById('modal-title');
+  let addbutton = document.querySelectorAll('.addbutton');
 
   if (!modal || !closeModal || !modalImage || !modalSmallImage || !modalTitle) {
     console.error('One or more modal elements are missing.');
@@ -1073,7 +1084,6 @@ document.addEventListener('DOMContentLoaded', () => {
     calculatePrice();
   });
 
-  let addbutton = document.querySelectorAll('.addbutton');
   document.querySelectorAll('.ri-zoom-in-line').forEach(item => {
     item.addEventListener('click', (event) => {
       event.preventDefault();
@@ -1082,17 +1092,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const prize = item.getAttribute('data-prize');
       const id = item.getAttribute('data-id');
       const translatedTitle = i18next.t(titleKey);
+
       modalTitle.textContent = translatedTitle;
       modalImage.src = imageUrl;
       modalImage.setAttribute('data-prize', prize);
       modalSmallImage.src = imageUrl;
+
       selectedSize = 1;
       modalnumber.value = 1;
       calculatePrice();
       modal.classList.add('show');
+
       addbutton.forEach(item => {
         item.setAttribute("data-id", id);
-      })
+      });
     });
   });
 
@@ -1102,9 +1115,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   addbutton.forEach(item => {
     item.addEventListener("click", () => {
-      sebetfunc(item)
-      createToast(false)
-    })
-  })
+      jsmodalfunc(item);
+      basketFunc();
+      modal.classList.remove('show');
+    });
+  });
 });
+
+function jsmodalfunc(params) {
+  const id = parseInt(params.getAttribute("data-id"));
+  const product = mehsul.find(item => item.id == id);
+  let basket = JSON.parse(localStorage.getItem("basket")) || [];
+  const modalInput = document.getElementById("modalnumber");
+  const countToAdd = parseInt(modalInput?.value) || 1;
+  const selectedSizeBtn = document.querySelector('.size__container-button button[style*="background-color"]');
+  const selectedSize = selectedSizeBtn ? selectedSizeBtn.textContent.trim() : "1 kq";
+  const existingProduct = basket.find(b => b.id === product.id);
+
+  if (existingProduct) {
+    existingProduct.count += countToAdd;
+  } else {
+    basket.push({ ...product, count: countToAdd, selectedSize: selectedSize });
+  }
+
+  localStorage.setItem("basket", JSON.stringify(basket));
+  basketFunc();
+}
+
 // ===========================================js Modal================================

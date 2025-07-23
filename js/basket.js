@@ -6,7 +6,7 @@ const total = document.createElement("div");
 const snow = document.querySelector("#snow");
 const darkMood = document.querySelector(".darkmood");
 const sup = document.querySelector("#sup");
-const change = document.querySelector(".change"); 
+const change = document.querySelector(".change");
 const headerContainer = document.querySelector(".header_container");
 const login = document.querySelector(".login");
 let basket = JSON.parse(localStorage.getItem("basket")) || [];
@@ -168,13 +168,21 @@ function updateLocalStorage() {
 basket.forEach((pruduct, index) => {
   let containerDiv = document.createElement("div");
   containerDiv.classList.add("container");
+
   let p = document.createElement("p");
   let number = pruduct.count || 1;
-  let c = pruduct.prize * number;
+
+  let selectedSize = pruduct.selectedSize
+    ? parseFloat(pruduct.selectedSize.replace("kq", "").trim())
+    : 1;
+
+  let c = pruduct.prize * number * selectedSize;
   p.innerText = `${number} ${i18next.language === "az" ? "ədəd" : "number"} x ${i18next.language === "az" ? pruduct.name_az : pruduct.name_en
-    } — ${c} Azn`;
+    } — ${c.toFixed(2)} Azn`;
+
   totalAmount += c;
   updateTotal();
+
   let divButton = document.createElement("div");
   divButton.classList.add("button");
   let button1 = document.createElement("button");
@@ -183,10 +191,11 @@ basket.forEach((pruduct, index) => {
   button2.innerText = "-";
   let button3 = document.createElement("button");
   button3.innerText = "X";
+
   function basketLength() {
-    mainH2.innerHTML = `${i18next.language === "az" ? "Məhsulun sayı" : "The Number of Product"
-      }(${basket.length})`;
+    mainH2.innerHTML = `${i18next.language === "az" ? "Məhsulun sayı" : "The Number of Product"}(${basket.length})`;
   }
+
   basketLength();
   containerDiv.appendChild(p);
   containerDiv.appendChild(divButton);
@@ -198,11 +207,11 @@ basket.forEach((pruduct, index) => {
   button1.addEventListener("click", () => {
     number++;
     pruduct.count = number;
-    c = pruduct.prize * number;
+    c = pruduct.prize * number * selectedSize;
     p.innerText = `${number} ${i18next.language === "az" ? "ədəd" : "number"
       } x ${i18next.language === "az" ? pruduct.name_az : pruduct.name_en
-      } — ${c} Azn`;
-    totalAmount += pruduct.prize;
+      } — ${c.toFixed(2)} Azn`;
+    totalAmount += pruduct.prize * selectedSize;
     updateTotal();
     updateLocalStorage();
   });
@@ -211,18 +220,18 @@ basket.forEach((pruduct, index) => {
     if (number > 1) {
       number--;
       pruduct.count = number;
-      c = pruduct.prize * number;
+      c = pruduct.prize * number * selectedSize;
       p.innerText = `${number} ${i18next.language === "az" ? "ədəd" : "number"
         } x ${i18next.language === "az" ? pruduct.name_az : pruduct.name_en
-        } — ${c} Azn`;
-      totalAmount -= pruduct.prize;
+        } — ${c.toFixed(2)} Azn`;
+      totalAmount -= pruduct.prize * selectedSize;
       updateTotal();
       updateLocalStorage();
     }
   });
 
   button3.addEventListener("click", () => {
-    totalAmount -= pruduct.prize * number;
+    totalAmount -= pruduct.prize * number * selectedSize;
     updateTotal();
     basket.splice(index, 1);
     updateLocalStorage();
@@ -231,6 +240,7 @@ basket.forEach((pruduct, index) => {
     basketFunc();
   });
 });
+
 
 updateTotal();
 updateLocalStorage();

@@ -119,9 +119,9 @@ darkMood.addEventListener("click", () => {
     change.style.backgroundColor = "black";
     change.style.color = "white";
     headerContainer.style.backgroundColor = "black";
+    body.style.backgroundColor = "rgb(35, 35, 35)";
     sectionContainer.style.backgroundColor = "rgb(35, 35, 35)";
     sectionContainer.style.color = "white";
-    body.style.backgroundColor = "rgb(35, 35, 35)";
     sweetContainer.style.color = "white";
     sweetMain.forEach((item) => {
       item.style.color = "white";
@@ -144,9 +144,9 @@ darkMood.addEventListener("click", () => {
     change.style.backgroundColor = "#313B90";
     change.style.color = "white";
     headerContainer.style.backgroundColor = "#1A2255";
+    body.style.backgroundColor = "rgb(53, 53, 75)";
     sectionContainer.style.backgroundColor = "#443B7E";
     sectionContainer.style.color = "#33BCD0";
-    body.style.backgroundColor = "rgb(53, 53, 75)";
     sweetContainer.style.color = "black";
     sweetMain.forEach((item) => {
       item.style.color = "black";
@@ -240,12 +240,12 @@ basketFunc();
 // =========================================== Basket JS ==============================
 
 // =========================================== Favorite JS ============================
-if (!localStorage.getItem("favorite")) {
-  localStorage.setItem("favorite", JSON.stringify([]));
-}
-
 if (!localStorage.getItem("iconColors")) {
   localStorage.setItem("iconColors", JSON.stringify({}));
+}
+
+if (!localStorage.getItem("favorite")) {
+  localStorage.setItem("favorite", JSON.stringify([]));
 }
 
 let iconColors = JSON.parse(localStorage.getItem("iconColors"));
@@ -1143,3 +1143,5 @@ function jsmodalfunc(params) {
 }
 
 // ===========================================js Modal================================
+
+// console.log(localStorage.clear());

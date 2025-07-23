@@ -103,6 +103,7 @@ i18next.use(i18nextBrowserLanguageDetector).init(
       az: {
         translation: {
           headerHome: "Ana səhifə",
+          Login: "Daxil ol",
           headerAbout: "Haqqında",
           headerVacancies: "Vakansiya",
           headerContact: "Əlaqə",
@@ -113,6 +114,7 @@ i18next.use(i18nextBrowserLanguageDetector).init(
       en: {
         translation: {
           headerHome: "Home",
+          Login: "Login",
           headerAbout: "About",
           headerVacancies: "Vacancies",
           headerContact: "Contact",
@@ -148,6 +150,8 @@ function updateContent() {
     i18next.t("headerChange");
   document.querySelector('[data-i18n="Basket"]').textContent =
     i18next.t("Basket");
+  document.querySelector('[data-i18n="Login"]').textContent =
+    i18next.t("Login");
 }
 // =========================================== Change Language ========================
 
@@ -251,3 +255,5 @@ function basketFunc() {
 }
 basketFunc();
 // =========================================== Basket Js ==============================
+
+// console.log(localStorage.clear());

@@ -2,12 +2,13 @@
 const snow = document.querySelector('#snow');
 const darkMood = document.querySelector('.darkmood');
 const headerContainer = document.querySelector('.header_container');
-const change = document.querySelector(".change")
-const main = document.querySelector("main")
+const change = document.querySelector(".change");
+const main = document.querySelector("main");
 const body = document.querySelector('body');
 const footer = document.querySelector('footer');
 const decoratorOne = document.querySelector(".decoratorOne");
-const input = document.querySelector(".search input")
+const input = document.querySelector(".search input");
+const login = document.querySelector(".login");
 let flag = true;
 let snowNumber = 150;
 // =========================================== Variables ===============================
@@ -58,6 +59,9 @@ for (let i = 0; i < snowNumber; i++) {
 // =========================================== DarkMood JS ============================
 darkMood.addEventListener('click', () => {
  if (flag == true) {
+  login.style.backgroundColor = "black";
+  login.style.color = "white";
+  login.style.boxShadow = "10px 5px 5px #33BCD0";
   darkMood.style.backgroundColor = "black";
   darkMood.style.color = "white";
   darkMood.style.boxShadow = "10px 5px 5px #33BCD0";
@@ -69,6 +73,10 @@ darkMood.addEventListener('click', () => {
   footer.style.backgroundColor = "rgb(38, 38, 38)";
   flag = false;
  } else if (flag == false) {
+  login.style.backgroundColor = "#313B90";
+  login.style.color = "white";
+  login.style.boxShadow =
+   "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
   darkMood.style.backgroundColor = "#313B90";
   darkMood.style.color = "white";
   darkMood.style.boxShadow = "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
@@ -120,6 +128,7 @@ i18next
    az: {
     translation: {
      headerHome: "Ana səhifə",
+     Login: "Daxil ol",
      headerAbout: "Haqqında",
      headerVacancies: "Vakansiya",
      headerContact: "Əlaqə",
@@ -147,6 +156,7 @@ i18next
    en: {
     translation: {
      headerHome: "Home",
+     Login: "Login",
      headerAbout: "About",
      headerVacancies: "Vacancies",
      headerContact: "Contact",
@@ -184,6 +194,7 @@ i18next
 
 function updateContent() {
  document.querySelector('[data-i18n="headerHome"]').textContent = i18next.t('headerHome');
+ document.querySelector('[data-i18n="Login"]').textContent = i18next.t('Login');
  document.querySelector('[data-i18n="headerAbout"]').textContent = i18next.t('headerAbout');
  document.querySelector('[data-i18n="headerVacancies"]').textContent = i18next.t('headerVacancies');
  document.querySelector('[data-i18n="headerContact"]').textContent = i18next.t('headerContact');

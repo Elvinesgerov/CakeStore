@@ -152,6 +152,7 @@ i18next.use(i18nextBrowserLanguageDetector).init(
       az: {
         translation: {
           headerHome: "Ana səhifə",
+          Login: "Daxil ol",
           headerAbout: "Haqqında",
           headerVacancies: "Vakansiya",
           headerContact: "Əlaqə",
@@ -174,6 +175,7 @@ i18next.use(i18nextBrowserLanguageDetector).init(
       en: {
         translation: {
           headerHome: "Home",
+          Login: "Login",
           headerAbout: "About",
           headerVacancies: "Vacancies",
           headerContact: "Contact",
@@ -211,6 +213,8 @@ i18next.use(i18nextBrowserLanguageDetector).init(
 function updateContent() {
   document.querySelector('[data-i18n="headerHome"]').textContent =
     i18next.t("headerHome");
+  document.querySelector('[data-i18n="Login"]').textContent =
+    i18next.t("Login");
   document.querySelector('[data-i18n="headerAbout"]').textContent =
     i18next.t("headerAbout");
   document.querySelector('[data-i18n="headerVacancies"]').textContent =

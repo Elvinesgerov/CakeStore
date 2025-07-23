@@ -240,8 +240,4 @@ function basketFunc() {
   sup.innerHTML = basket.length;
 }
 basketFunc();
-
-// jsbasket.forEach(jspruduct => {
-
-// })
 // =========================================== Basket Js ==============================

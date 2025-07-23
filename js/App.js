@@ -520,6 +520,7 @@ i18next.use(i18nextBrowserLanguageDetector).init(
           Number: "Sayı",
           AddCard: "Karti əlavə edin",
           Share: "Paylaşın",
+          pickup: "Tortu nə vaxt götürə bilərəm?",
         },
       },
       en: {
@@ -644,6 +645,7 @@ i18next.use(i18nextBrowserLanguageDetector).init(
           Number: "Number",
           AddCard: "Add to card",
           Share: "Share",
+          pickup: "When can I pick up my cake?",
         },
       },
     },
@@ -865,6 +867,9 @@ function updateContent() {
     i18next.t("Share");
   document.querySelectorAll('[data-i18n="Faq"]').forEach(item => {
     item.textContent = i18next.t("Faq");
+  })
+  document.querySelectorAll('[data-i18n="pickup"]').forEach(item => {
+    item.textContent = i18next.t("pickup");
   })
   let SuccessTextTwo = document.querySelector('[data-i18n="SuccessTextTwo"]');
   if (SuccessTextTwo) {

@@ -1,16 +1,34 @@
 // =========================================== Variables ==============================
+const signUpButton = document.getElementById("signUp");
+const signInButton = document.getElementById("signIn");
+const container = document.getElementById("container");
 const snow = document.querySelector('#snow');
 const darkMood = document.querySelector('.darkmood');
 const headerContainer = document.querySelector('.header_container');
 const change = document.querySelector(".change")
-const zero_about = document.querySelectorAll(".zero_about div")
-const zeroAboutDivP = document.querySelectorAll(".zero_about div p");
 const body = document.querySelector('body');
 const footer = document.querySelector('footer');
 const login = document.querySelector(".login");
 let flag = true;
 let snowNumber = 150;
 // =========================================== Variables ===============================
+
+// =========================================== Register JS ================================
+signUpButton.addEventListener("click", () => {
+ container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener("click", () => {
+ container.classList.remove("right-panel-active");
+});
+
+
+function handleCredentialResponse(response) {
+ const data = jwt_decode(response.credential);
+ console.log("Google user data:", data);
+ alert(`Salam ${data.name}!\nEmail: ${data.email}`);
+}
+// =========================================== Register JS ================================
 
 
 // =========================================== Snow JS ================================
@@ -34,7 +52,6 @@ for (let i = 0; i < snowNumber; i++) {
 };
 // =========================================== Snow JS ================================
 
-
 // =========================================== DarkMood JS ============================
 darkMood.addEventListener('click', () => {
  if (flag == true) {
@@ -48,12 +65,6 @@ darkMood.addEventListener('click', () => {
   headerContainer.style.backgroundColor = "black";
   change.style.backgroundColor = "black";
   change.style.color = "white";
-  zero_about.forEach(item => {
-   item.style.background = "rgb(35, 35, 35)";
-  })
-  zeroAboutDivP.forEach(item => {
-   item.style.color = "white";
-  });
   footer.style.backgroundColor = "rgb(38, 38, 38)";
   flag = false;
  } else if (flag == false) {
@@ -66,19 +77,13 @@ darkMood.addEventListener('click', () => {
   darkMood.style.boxShadow = "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
   change.style.backgroundColor = "#313B90"
   change.style.color = "white"
+  change.style.boxShadow = ""
   headerContainer.style.backgroundColor = "#1A2255";
   footer.style.backgroundColor = "#1A2255";
-  zero_about.forEach(item => {
-   item.style.background = "radial-gradient(circle, #4e44b7 0, #0a2f5b 100%)";
-  })
-  zeroAboutDivP.forEach(item => {
-   item.style.color = "white";
-  });
   flag = true;
  };
 });
 // =========================================== DarkMood JS ============================
-
 
 // =========================================== Scroll JS ==============================
 window.onscroll = function () {
@@ -101,13 +106,6 @@ function goToTop() {
 };
 // =========================================== Scroll JS ==============================
 
-function basketFunc() {
- let sup = document.querySelector("#sup")
- basket = JSON.parse(localStorage.getItem("basket"));
- sup.innerHTML = basket.length;
-}
-basketFunc();
-
 // =========================================== Change Language ========================
 i18next
  .use(i18nextBrowserLanguageDetector)
@@ -121,10 +119,13 @@ i18next
      headerVacancies: "Vakansiya",
      headerContact: "Əlaqə",
      headerChange: "Dili Dəyişdirin",
-     text1: "Tatlı 'Treats' Shop hər hansı bir hadisə üçün nəfis əl işi, premium bayram tortları üzrə ixtisaslaşmışdır. Bizim yüksək ixtisaslı tort dizaynerləri və dekoratorlarından ibarət komandamız var ki, onlar həqiqətən fərdiləşdirilmiş və yaddaqalan tortlar yarada bilirlər ki, bu tortlar sizin xüsusi münasibətilə zövq alacaqdır. o 'Cake' Shop yeməli mallar, şəkər istehsalı materialları, alətlər və avadanlıqlar daxil olmaqla geniş çeşiddə tort bəzək aksesuarları satır. Dizaynerlər komandamızla tələblərinizi daha ətraflı müzakirə etmək üçündür.",
-     text2: "Biz 2000-ci ildən tarixi Bakı şəhərində ticarət edirik, Mağazamız həm yerli, həm də milli mətbuatda müntəzəm olaraq işıqlandırılır. Tatli Tort Dükanı tarixi Qapalı Şəhərlər daxilində yerləşir və şəhərdən keçən bir çox bələdçili gəzinti turlarının mərkəzidir, həmçinin yerli sakinlərə və turistlərə bizim bacarıqlı tort sənətçilərimizi iş yerində izləmək imkanı verir. Tortlarımız Böyük Britaniyanın ən yaxşı istehsalçılarından təzə alınmış yüksək keyfiyyətli inqrediyentlərdən hazırlanır və onların bir çoxu ilə biznesin başlandığı gündən əməkdaşlıq edirik.",
-     text3: "İstənilən növ tort dekorasiyasını bizim tort mağazamızda seçib sifariş edə bilərsiniz. Biz peşəkar, həvəsli və enerjili fərdlərdən ibarət komanda işləyirik. Beləliklə, onlar bəzəməyə hazırdırlar, təcrübəli dekoratorlarla yanaşı yeni bəzək bacarıqlarını öyrənirlər, müştəri sifarişləri üçün tortlara mesaj yazmağı öyrənirlər.",
-     text4: "Mağazamız həm yerli, həm də milli mətbuatda müntəzəm olaraq işıqlandırılır. Tatli Tort Dükanı tarixi Qapalı Şəhərlər daxilində yerləşir və şəhərdən keçən bir çox bələdçili gəzinti turlarının mərkəzidir, həmçinin yerli sakinlərə və turistlərə bizim bacarıqlı tort sənətçilərimizi iş yerində izləmək imkanı verir. Tortlarımız Böyük Britaniyanın ən yaxşı istehsalçılarından təzə alınmış yüksək keyfiyyətli inqrediyentlərdən hazırlanır və onların bir çoxu ilə biznesin başlandığı gündən əməkdaşlıq edirik.",
+     Signin: "Daxil olun",
+     forget: "Parolunuzu unutmusunuz?",
+     Welcome: "Xoş gəlmisiniz!",
+     text1: "Bizimlə əlaqə saxlamaq üçün şəxsi məlumatlarınızla daxil olun",
+     hello: "Salam, Dost!",
+     text2: "Şəxsi məlumatlarınızı daxil edin və səyahətinizə bizimlə başlayın",
+     signup: "qeydiyyatdan keçin",
      footerContact: "Əlaqə",
      footerAbout: "Haqqinda",
      footerVacancies: "Vakansiya",
@@ -143,10 +144,13 @@ i18next
      headerVacancies: "Vacancies",
      headerContact: "Contact",
      headerChange: "Change Language",
-     text1: "The 'Treats' Shop specialises in exquisitely hand-crafted, premium celebration cakes for any occasion. We have a team of highly skilled cake designers and decorators who can create a truly personalised and  memorable cake which is bound to delight at your special occasion. he Cake Shop sells a wide range of cake decorating accessories including edible goods, ribbons, sugarcraft materials, tools and equipment. To discuss your requirements in more detail with our team of designers.",
-     text2: "We have been trading since 2000 in the historic city of Baku, Our shop is regularly featured in both local and national media. The Tatli Cake Shop is located within the historic Covered Towns and is a focal point for many of the guided walking tours that pass through the city as well as providing locals and tourists with an opportunity to watch our skilled cake artists at work. Our cakes are made from the highest quality ingredients sourced fresh from the best UK producers, many of which we have been working in partnership with since the business began",
-     text3: "You can choose and order any type of cake decoration in our cake shop . We are working professional , enthusiastic and energetic individuals team. So, they are ready to decorate, learning new decorating skills alongside experienced decorators, learning how to write messages on cakes for customer orders",
-     text4: "Our shop is regularly featured in both local and national media. The Tatli Cake Shop is located within the historic Covered Towns and is a focal point for many of the guided walking tours that pass through the city as well as providing locals and tourists with an opportunity to watch our skilled cake artists at work. Our cakes are made from the highest quality ingredients sourced fresh from the best UK producers, many of which we have been working in partnership with since the business began",
+     Signin: "Sign in",
+     forget: "Forgot your password?",
+     Welcome: "Welcome Back!",
+     text1: "To keep connected with us please login with your personal info",
+     hello: "Hello, Friend",
+     text2: "Enter your personal details and start your journey with us",
+     signup: "sign up",
      footerContact: "Contact",
      footerAbout: "About",
      footerVacancies: "Vacancies",
@@ -161,7 +165,7 @@ i18next
   fallbackLng: 'en',
   debug: true,
 
- }, function (err, t) {
+ }, function () {
   updateContent();
   document.querySelector('.change').addEventListener('click', function () {
    i18next.changeLanguage(i18next.language === 'az' ? 'en' : 'az', updateContent);
@@ -174,6 +178,15 @@ function updateContent() {
  document.querySelector('[data-i18n="headerVacancies"]').textContent = i18next.t('headerVacancies');
  document.querySelector('[data-i18n="headerContact"]').textContent = i18next.t('headerContact');
  document.querySelector('[data-i18n="headerChange"]').textContent = i18next.t('headerChange');
+ document.querySelectorAll('[data-i18n="Signin"]').forEach(item => {
+  item.textContent = i18next.t('Signin')
+ })
+ document.querySelector('[data-i18n="forget"]').textContent = i18next.t('forget');
+ document.querySelector('[data-i18n="Welcome"]').textContent = i18next.t('Welcome');
+ document.querySelector('[data-i18n="text1"]').textContent = i18next.t('text1');
+ document.querySelector('[data-i18n="hello"]').textContent = i18next.t('hello');
+ document.querySelector('[data-i18n="text2"]').textContent = i18next.t('text2');
+ document.querySelector('[data-i18n="signup"]').textContent = i18next.t('signup');
  document.querySelector('[data-i18n="footerContact"]').textContent = i18next.t('footerContact');
  document.querySelector('[data-i18n="footerAbout"]').textContent = i18next.t('footerAbout');
  document.querySelector('[data-i18n="footerVacancies"]').textContent = i18next.t('footerVacancies');
@@ -182,10 +195,32 @@ function updateContent() {
  document.querySelector('[data-i18n="Merdakan"]').textContent = i18next.t('Merdakan');
  document.querySelector('[data-i18n="Yasamal"]').textContent = i18next.t('Yasamal');
  document.querySelector('[data-i18n="Bakixanov"]').textContent = i18next.t('Bakixanov');
- document.querySelector('[data-i18n="text1"]').textContent = i18next.t('text1');
- document.querySelector('[data-i18n="text2"]').textContent = i18next.t('text2');
- document.querySelector('[data-i18n="text3"]').textContent = i18next.t('text3');
- document.querySelector('[data-i18n="text4"]').textContent = i18next.t('text4');
  document.querySelector('[data-i18n="Login"]').textContent = i18next.t('Login');
 };
 // =========================================== Change Language ========================
+
+
+// =========================================== Change Body Color ========================
+function getRandomDarkColor() {
+ let r, g, b;
+ do {
+  r = Math.floor(Math.random() * 200);
+  g = Math.floor(Math.random() * 200);
+  b = Math.floor(Math.random() * 200);
+  const isGray = Math.abs(r - g) < 20 && Math.abs(g - b) < 20 && Math.abs(b - r) < 20;
+  const isTooBright = r + g + b > 600;
+
+  if (!isGray && !isTooBright) break;
+ } while (true);
+ return `rgb(${r}, ${g}, ${b})`;
+}
+
+function setRandomGradient() {
+ const color1 = getRandomDarkColor();
+ const color2 = getRandomDarkColor();
+ const angle = Math.floor(Math.random() * 360);
+ body.style.background = `linear-gradient(${angle}deg, ${color1}, ${color2})`;
+}
+body.style.background = 'linear-gradient(135deg, #2c2c54, #5959a4)';
+setInterval(setRandomGradient, 2000);
+// =========================================== Change Body Color ========================

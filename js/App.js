@@ -1035,7 +1035,7 @@ function compareNumber() {
   const compareSup = document.querySelector("#comparesub sup");
   compareSup.innerHTML = compare.length;
 }
-compareNumber();
+document.addEventListener("DOMContentLoaded", compareNumber)
 // =========================================== Compare Number ========================
 
 

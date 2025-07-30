@@ -1,3 +1,4 @@
+/* ============================================ Began CSS ======================================= */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 * {
@@ -26,7 +27,9 @@ main {
  margin: 0;
  z-index: 2;
 }
+/* ============================================ Began CSS ======================================= */
 
+/* ============================================ Login CSS ======================================= */
 .container {
  background: #fff;
  border-radius: 10px;
@@ -68,7 +71,7 @@ main {
 }
 
 form {
- background: #fff;
+ background-color: #fff;
  display: flex;
  flex-direction: column;
  padding: 0 50px;
@@ -194,6 +197,9 @@ button.ghost {
  background-color: #33BCD0 !important;
 }
 
+/* ============================================ Login CSS ======================================= */
+
+/* ============================================ Snow CSS ======================================= */
 #snow {
  position: fixed !important;
  top: 0;
@@ -203,3 +209,35 @@ button.ghost {
  z-index: 9999 !important;
  pointer-events: none;
 }
+
+/* ============================================ Snow CSS ======================================= */
+
+/* ============================================ Scroll CSS ======================================= */
+::-webkit-scrollbar {
+ width: 10px;
+ background-color: #1A2255;
+}
+
+::-webkit-scrollbar-thumb {
+ background-color: #313B90;
+}
+
+.generally_scrol {
+ border: none;
+ border-radius: 15px;
+ width: 4%;
+ height: 56px;
+ background-color: #313B90;
+ display: flex;
+ align-items: center;
+ position: fixed;
+ z-index: 15;
+ font-size: 1.8rem;
+ right: 15px;
+ justify-content: center;
+ top: 90%;
+ color: white;
+ display: none;
+}
+
+/* ============================================ Scroll CSS ======================================= */

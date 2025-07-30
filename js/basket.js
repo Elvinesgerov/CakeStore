@@ -9,6 +9,7 @@ const sup = document.querySelector("#sup");
 const change = document.querySelector(".change");
 const headerContainer = document.querySelector(".header_container");
 const login = document.querySelector(".login");
+const toastContainer = document.querySelector(".toast-container");
 let basket = JSON.parse(localStorage.getItem("basket")) || [];
 let jsbasket = JSON.parse(localStorage.getItem("jsbasket")) || [];
 let totalAmount = 0;
@@ -22,7 +23,7 @@ function createSnow() {
   div.classList.add("snow");
   div.innerHTML = "❆";
   div.style.left = `${Math.random() * 90}vw`;
-  div.style.animationDuration = `${15}s`;
+  div.style.animationDuration = `${50}s`;
   div.style.fontSize = `${1.2}em`;
   div.style.color = "white";
 
@@ -109,6 +110,8 @@ i18next.use(i18nextBrowserLanguageDetector).init(
           headerContact: "Əlaqə",
           headerChange: "Dili Dəyişdirin",
           Basket: "Səbət",
+          Success: "Ugurlu!",
+          SuccessTextTwo: "Kart silindi",
         },
       },
       en: {
@@ -120,6 +123,8 @@ i18next.use(i18nextBrowserLanguageDetector).init(
           headerContact: "Contact",
           headerChange: "Change Language",
           Basket: "Basket",
+          Success: "Success!",
+          SuccessTextTwo: "Removed from card",
         },
       },
     },
@@ -152,6 +157,14 @@ function updateContent() {
     i18next.t("Basket");
   document.querySelector('[data-i18n="Login"]').textContent =
     i18next.t("Login");
+  let SuccessTextTwo = document.querySelector('[data-i18n="SuccessTextTwo"]');
+  if (SuccessTextTwo) {
+    SuccessTextTwo.textContent = i18next.t("SuccessTextTwo");
+  }
+  let Success = document.querySelector('[data-i18n="Success"]');
+  if (Success) {
+    Success.textContent = i18next.t("Success");
+  }
 }
 // =========================================== Change Language ========================
 
@@ -242,6 +255,7 @@ basket.forEach((pruduct, index) => {
     containerDiv.remove();
     basketLength();
     basketFunc();
+    createToast();
   });
 });
 
@@ -256,4 +270,65 @@ function basketFunc() {
 basketFunc();
 // =========================================== Basket Js ==============================
 
-// console.log(localStorage.clear());
+// =========================================== Notification JS ========================
+function initSweetToasts() {
+  let top = 10;
+  createToast()
+}
+
+function createToast(isIconClick, messageText = i18next.t("SuccessTextTwo")) {
+  const toast = document.createElement("div");
+  toast.classList.add("toast");
+
+  if (top >= 400) top = 10;
+  toast.style.marginTop = `${top}px`;
+  top += 70;
+
+  toastContainer.appendChild(toast);
+
+  const toastContent = document.createElement("div");
+  toastContent.classList.add("toast-content");
+  toast.appendChild(toastContent);
+
+  const check = document.createElement("i");
+  check.classList.add("fas", "fas-solid", "fa-check", "check");
+  toastContent.appendChild(check);
+
+  const message = document.createElement("div");
+  message.classList.add("message");
+  toastContent.appendChild(message);
+
+  const spanOne = document.createElement("span");
+  spanOne.setAttribute("data-i18n", "Success");
+  spanOne.innerHTML = i18next.t("Success");
+  spanOne.style.color = "green";
+  spanOne.style.fontSize = "23px";
+  spanOne.classList.add("text", "text-1");
+  message.appendChild(spanOne);
+
+  const spanTwo = document.createElement("span");
+  spanTwo.classList.add("text", "text-2");
+  spanTwo.setAttribute("data-i18n", isIconClick ? "SuccessTextTwo" : "SuccessText");
+  spanTwo.innerHTML = messageText;
+  message.appendChild(spanTwo);
+
+  const close = document.createElement("i");
+  close.classList.add("fas", "fas-solid", "fa-xmark", "close");
+  toast.appendChild(close);
+
+  const progress = document.createElement("div");
+  progress.classList.add("progress");
+  toast.appendChild(progress);
+
+  toast.classList.add("active");
+  progress.classList.add("active");
+
+  const removeToast = () => {
+    toast.classList.remove("active");
+    setTimeout(() => toast.remove(), 500);
+  };
+
+  setTimeout(removeToast, 5000);
+  close.addEventListener("click", removeToast);
+}
+// =========================================== Notification JS ========================

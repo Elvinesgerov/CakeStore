@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Compare</title>
+
+ <!-- CSS Link -->
+ <link rel="stylesheet" href="../css/about.css" />
+ <link rel="stylesheet" href="../css/compare.css">
+
+ <!-- Logo -->
+ <link rel="shortcut icon" href="../image/logoFoto.webp" />
+
+ <!-- RemixIcon CDN -->
+ <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" rel="stylesheet" />
+
+ <!-- İ18n CDN -->
+ <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet" />
+ <script src="https://cdn.jsdelivr.net/npm/i18next/dist/umd/i18next.min.js"></script>
+ <script
+  src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+
+ <!-- Fontawesome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+ <!--============================================ Notification animation =================================-->
+ <div class="toast-container"></div>
+ <!--============================================ Notification animation =================================-->
+
+ <!-- Scroll Button -->
+ <div class="generally_scrol" id="goToTopButton" onclick="goToTop()">
+  <i class="ri-arrow-up-line"></i>
+ </div>
+ <!-- Scroll Button -->
+
+ <!-- Snow -->
+ <div id="snow"></div>
+ <!-- Snow -->
+
+ <!-- Header -->
+ <header>
+  <div class="header_container">
+   <img class="logo" src="../image/logoFoto.webp" alt="logo" />
+   <div class="header_title">
+    <a href="../index.html" data-i18n="headerHome">Home</a>
+    <a href="../html/about.html" data-i18n="headerAbout">About</a>
+    <a href="../html/vacancies.html" data-i18n="headerVacancies">Vacancies</a>
+    <a href="../html/contact.html" data-i18n="headerContact">Contact</a>
+    <a href="../html/basket.html"><i class="ri-shopping-cart-2-fill"></i><sup style="color: blue; font-weight: 900;"
+      id="sup">0</sup></a>
+    <a href="" class="change" data-i18n="headerChange">Change Language</a>
+    <div class="darkmood">
+     <i class="ri-moon-line"></i>
+     <i class="ri-sun-line"></i>
+    </div>
+    <div class="darkmood login">
+     <a href="../html/login.htm" data-i18n="Login" class="login">Login</a>
+    </div>
+   </div>
+  </div>
+ </header>
+ <!-- Header -->
+
+
+ <!-- Main -->
+ <main>
+  <h1>COMPARED PRODUCTS</h1>
+ </main>
+ <!-- Main -->
+
+ <script src="../js/compare.js"></script>
+</body>
+
+</html>

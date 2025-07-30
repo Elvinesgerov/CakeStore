@@ -1,0 +1,243 @@
+/*=========================================== Compare CSS ================================ */
+body {
+ background: radial-gradient(circle, #4e44b7 0, #0a2f5b 100%);
+}
+
+main h1 {
+ text-align: center;
+ margin-top: 25px;
+ font-size: 35px;
+}
+
+.comparebox {
+ display: flex;
+ gap: 10px;
+ align-items: flex-start;
+}
+
+.catagory {
+ margin: 27% 60px 0;
+}
+
+.catagory p {
+ width: 220px;
+ height: 63px;
+ color: white;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 17px;
+}
+
+.odddiv {
+ background-color: #1A2255;
+}
+
+.evendiv {
+ background-color: #4942B1;
+}
+
+.productfoto {
+ width: 250px;
+ height: 200px;
+ margin-top: 20px;
+ transition: 1.2s;
+}
+
+.productfoto:hover {
+ transform: scale(1.1);
+}
+
+.product p {
+ width: 300px;
+ height: 63px;
+ color: white;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 19.5px;
+}
+
+.anbarda {
+ width: 130px;
+ height: 40px;
+ text-align: center;
+ font-size: 18px;
+ border: 5px solid #008000;
+ color: #008000;
+ font-weight: 900;
+}
+
+.ri-star-fill {
+ color: #FFA500;
+ font-weight: 900;
+ margin-left: 10px;
+}
+
+.imagebox {
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ justify-content: flex-start;
+ align-items: center;
+}
+
+.productbox {
+ margin-top: 95px;
+ margin-bottom: 50px;
+}
+
+.product {
+ margin-top: 40px;
+}
+
+.deletebtn {
+ width: 90%;
+ font-size: 20px;
+ background: #000;
+ color: #fff;
+ padding: 5px 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: none;
+ border-radius: 16px;
+ cursor: pointer;
+ transition: ease-in-out 0.3s;
+}
+
+.deletebtn:hover {
+ transform: scale(1) rotate(10deg);
+ background-color: #fa725a;
+ color: white;
+}
+
+.productcontainer {
+ display: flex;
+ gap: 50px;
+ overflow-x: auto;
+ margin-bottom: 200px;
+}
+
+.productcontainer::-webkit-scrollbar {
+ height: 8px;
+}
+
+.productcontainer::-webkit-scrollbar-thumb {
+ background-color: #888;
+ border-radius: 5px;
+ border: 2px solid #eee;
+}
+
+/*=========================================== Compare CSS ================================ */
+
+/* ============================================ Notification animation =========================== */
+.toast {
+ background-color: white;
+ box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+ padding: 10px 35px 10px 25px;
+ border-radius: 10px;
+ position: fixed;
+ z-index: 150;
+ top: 25px;
+ right: 35px;
+ width: 350px;
+ border-left: 6px solid blue;
+ overflow-x: hidden;
+ transform: translateX(calc(100% + 40px));
+ transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.toast .toast-content {
+ display: flex;
+ align-items: center;
+ z-index: 2;
+}
+
+.toast-content .check {
+ width: 35px;
+ height: 35px;
+ background-color: blue;
+ color: white;
+ border-radius: 50%;
+ font-size: 1.25rem;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.toast-content .message {
+ display: flex;
+ flex-direction: column;
+ margin: 0 20px;
+}
+
+.message .text {
+ font-size: 1rem;
+ font-weight: 400;
+ color: #666666;
+}
+
+.message .text.text-1 {
+ font-weight: 600;
+ color: #333;
+}
+
+.toast .close {
+ position: absolute;
+ top: 10px;
+ right: 15px;
+ padding: 5px;
+ cursor: pointer;
+ opacity: 0.5;
+ transition: 0.4s;
+ font-size: 1.2rem;
+}
+
+.toast .close:hover {
+ opacity: 1;
+}
+
+.toast .progress {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ height: 4px;
+ width: 100%;
+ background-color: #ddd;
+}
+
+.toast .progress::before {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ background-color: blue;
+ width: 100%;
+ height: 100%;
+}
+
+.toast.active {
+ transform: translateX(0%);
+}
+
+.progress.active::before {
+ animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+ 100% {
+  right: 100%;
+ }
+}
+
+/* ============================================ Notification animation =========================== */
+
+/* ============================================ Snow animation =========================== */
+@keyframes animation {
+ to {
+  transform: translateY(150vh);
+ }
+
+}
+/* ============================================ Snow animation =========================== */

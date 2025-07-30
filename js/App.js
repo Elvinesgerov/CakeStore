@@ -18,15 +18,8 @@ const zeroContainerImg = document.querySelector(".zero_container img");
 const sweet_mainButton = document.querySelectorAll(".sweet_main div button");
 const sweet_mainIcon = document.querySelectorAll(".ri-heart-line");
 const toastContainer = document.querySelector(".toast-container");
-const compareIcon = document.querySelectorAll("#compareId");
 const modalTitle = document.getElementById('modal-title');
-const array = [
-  "../image/Foto2.jpg",
-  "../image/Foto7.jpg",
-  "../image/header.jpg",
-  "../image/Strawberry.jpg",
-  "../image/Chiristmas.jpg",
-];
+const array = ["../image/Foto2.jpg", "../image/Foto7.jpg", "../image/header.jpg", "../image/Strawberry.jpg", "../image/Chiristmas.jpg"];
 let compareFlag = true;
 let spanTwo;
 let flag = true;
@@ -76,8 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // =========================================== Reyting func ==============================
 
-
-
 // =========================================== Change Img =============================
 setInterval(function () {
   zeroContainerImg.src = array[index];
@@ -91,7 +82,7 @@ function createSnow() {
   div.classList.add("snow");
   div.innerHTML = "❆";
   div.style.left = `${Math.random() * 90}vw`;
-  div.style.animationDuration = `${70}s`;
+  div.style.animationDuration = `${140}s`;
   div.style.fontSize = `${1.4}em`;
   div.style.color = "white";
   snow.appendChild(div);
@@ -259,8 +250,10 @@ sweet_mainIcon.forEach((icon) => {
   icon.addEventListener("click", (e) => {
     if (icon.style.color === "red") {
       icon.style.color = "black";
+      createToast(false, i18next.t("SuccessTextTwo"));
     } else {
       icon.style.color = "red";
+      createToast(true, i18next.t("SuccessADD"));
     }
 
     const product = mehsul.find((item) => item.id == id);
@@ -326,7 +319,7 @@ i18next.use(i18nextBrowserLanguageDetector).init(
           headerChange: "Dili Dəyişdirin",
           sections: "Bölmələr",
           Birthday: "Ad günü tortu",
-          CompareSections: "Muqayisə et",
+          CompareSections: 'Muqayise et <sup style = "color:white; font-weight: 900; font-size:1.5rem"></sup>',
           GalerySections: "Şəkillər",
           VideoSections: "Vidyolar",
           Morethan: "Məhsullar",
@@ -374,6 +367,7 @@ i18next.use(i18nextBrowserLanguageDetector).init(
           SuccessText: "Səbətə Əlave Olundu",
           Success: "Ugurlu!",
           SuccessTextTwo: "Kart silindi",
+          SuccessADD: "Kart əlavə edildi",
           Faq: "Suallar",
           Login: "Daxil ol",
           li1: "Vanil, şokolad, və ya başqa bir dad seçimi",
@@ -451,7 +445,7 @@ i18next.use(i18nextBrowserLanguageDetector).init(
           headerChange: "Change Language",
           sections: "Sections",
           Birthday: "Birthday cake",
-          CompareSections: "Compare",
+          CompareSections: 'Compare <sup style = "color:white; font-weight: 900; font-size:1.5rem"></sup>',
           GalerySections: "Galerya",
           VideoSections: "Videos",
           Morethan: "Products",
@@ -499,6 +493,7 @@ i18next.use(i18nextBrowserLanguageDetector).init(
           SuccessText: "Added to cart",
           Success: "Success!",
           SuccessTextTwo: "Removed from card",
+          SuccessADD: "Added to the card",
           Faq: "Faqs",
           Login: "Login",
           li1: "Vanilla, chocolate, or other flavor choice",
@@ -581,7 +576,7 @@ function updateContent() {
     i18next.t("sections");
   document.querySelector('[data-i18n="Birthday"]').textContent =
     i18next.t("Birthday");
-  document.querySelector('[data-i18n="CompareSections"]').textContent =
+  document.querySelector('[data-i18n="CompareSections"]').innerHTML =
     i18next.t("CompareSections");
   document.querySelectorAll('[data-i18n="GalerySections"]').forEach(item => {
     item.textContent = i18next.t("GalerySections");
@@ -784,6 +779,10 @@ function updateContent() {
   if (SuccessText) {
     SuccessText.textContent = i18next.t("SuccessText");
   }
+  let SuccessADD = document.querySelector('[data-i18n="SuccessADD"]');
+  if (SuccessADD) {
+    SuccessADD.textContent = i18next.t("SuccessADD");
+  }
   let titleKey;
   if (modalTitle) {
     titleKey = modalTitle.getAttribute('data-i18n');
@@ -798,23 +797,11 @@ function updateContent() {
 // =========================================== Notification JS ========================
 function initSweetToasts() {
   const sweetMainButton = document.querySelectorAll(".sweet_main div button");
-  const sweetMainIcon = document.querySelectorAll(".sweet_main div i");
-  const toastContainer = document.querySelector(".toast-container");
   let top = 10;
 
   createToast()
   sweetMainButton.forEach((item) => {
     item.addEventListener("click", () => createToast(false));
-  });
-
-  sweetMainIcon.forEach((item) => {
-    item.addEventListener("click", () => {
-      if (item.style.color === "red") {
-        createToast(true);
-      } else {
-        createToast(true, i18next.t("SuccessTextTwo"));
-      }
-    });
   });
 }
 
@@ -873,7 +860,6 @@ function createToast(isIconClick, messageText = i18next.t("SuccessText")) {
   setTimeout(removeToast, 5000);
   close.addEventListener("click", removeToast);
 }
-
 // =========================================== Notification JS ========================
 
 
@@ -991,20 +977,66 @@ document.addEventListener('touchend', handleMouseUp)
 // =========================================== Swiper Js ========================
 
 // =========================================== Compare js ================================
-compareIcon.forEach(item => {
-  item.addEventListener("click", () => {
-    if (compareFlag == true) {
-      item.classList.remove("ri-loop-left-line");
-      item.classList.add("ri-check-double-line")
-      compareFlag = false
-    } else {
-      item.classList.remove("ri-check-double-line")
-      item.classList.add("ri-loop-left-line");
-      compareFlag = true
+window.addEventListener("DOMContentLoaded", () => {
+  const savedList = JSON.parse(localStorage.getItem("compareList")) || [];
+
+  document.querySelectorAll(".ri-loop-left-line, .ri-check-double-line").forEach(icon => {
+    const box = icon.closest(".box");
+    const imgSrc = box.querySelector("img").getAttribute("src");
+
+    const found = savedList.find(item => item.image === imgSrc);
+    if (found) {
+      icon.classList.remove("ri-loop-left-line", "ri-check-double-line");
+      icon.classList.add(found.iconClass || "ri-check-double-line");
     }
-  })
-})
+  });
+});
+
+document.querySelectorAll(".ri-loop-left-line, .ri-check-double-line").forEach(icon => {
+  icon.addEventListener("click", () => {
+    const box = icon.closest(".box");
+    const image = box.querySelector("img").getAttribute("src");
+    const price = box.querySelectorAll("p")[1].textContent;
+    const product = mehsul.find(item => image.includes(item.foto.replace("../image/", "")));
+
+    if (!product) return;
+    let compareList = JSON.parse(localStorage.getItem("compareList")) || [];
+    const existingIndex = compareList.findIndex(item => item.id === product.id);
+
+    if (existingIndex === -1) {
+      const compareProduct = {
+        id: product.id,
+        image,
+        name_az: product.name_az,
+        name_en: product.name_en,
+        price,
+        iconClass: "ri-check-double-line"
+      };
+      compareList.push(compareProduct);
+      icon.classList.remove("ri-loop-left-line");
+      icon.classList.add("ri-check-double-line");
+      createToast(false, i18next.t("SuccessADD"));
+    } else {
+      compareList.splice(existingIndex, 1);
+      icon.classList.remove("ri-check-double-line");
+      icon.classList.add("ri-loop-left-line");
+      createToast(true, i18next.t("SuccessTextTwo"));
+    }
+
+    localStorage.setItem("compareList", JSON.stringify(compareList));
+    compareNumber()
+  });
+});
 // =========================================== Compare js================================
+
+// =========================================== Compare Number ========================
+function compareNumber() {
+  let compare = JSON.parse(localStorage.getItem("compareList"));
+  const compareSup = document.querySelector("#comparesub sup");
+  compareSup.innerHTML = compare.length;
+}
+compareNumber();
+// =========================================== Compare Number ========================
 
 
 // =========================================== Faq js================================
@@ -1117,6 +1149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     item.addEventListener("click", () => {
       jsmodalfunc(item);
       basketFunc();
+      createToast()
       modal.classList.remove('show');
     });
   });
@@ -1143,5 +1176,3 @@ function jsmodalfunc(params) {
 }
 
 // ===========================================js Modal================================
-
-// console.log(localStorage.clear());

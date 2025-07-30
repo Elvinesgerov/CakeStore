@@ -101,7 +101,7 @@ html {
 
 @keyframes animation {
     to {
-        transform: translateY(210vh);
+        transform: translateY(150vh);
     }
 
 }
@@ -111,7 +111,7 @@ html {
     top: -10px;
     font-size: 1em;
     user-select: none;
-    animation: animation linear infinite;
+    animation: animation linear infinite ;
 }
 
 /* ============================================ Snow CSS ========================================== */
@@ -176,6 +176,9 @@ html {
     font-size: 1.8rem;
 }
 
+.login{
+    font-size: 19px;
+}
 /* ============================================ Header CSS ======================================== */
 
 
@@ -387,10 +390,3 @@ footer {
     transition: 0.7s;
 }
 /* ============================================ Footer CSS ======================================== */
-
-
-/* ============================================ Media Screen ====================================== */
-
-
-
-/* ============================================ Media Screen ====================================== */

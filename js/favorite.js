@@ -12,10 +12,9 @@ const span = document.querySelector(".text-2");
 const change = document.querySelector(".change");
 let favorite = JSON.parse(localStorage.getItem("favorite")) || [];
 let flag = true;
-let snowNumber = 80;
+let snowNumber = 150;
 let iconColors = JSON.parse(localStorage.getItem("iconColors")) || {};
 // =========================================== Variables ==============================
-
 
 // =========================================== Change Language ========================
 i18next.use(i18nextBrowserLanguageDetector).init(
@@ -89,7 +88,6 @@ function updateContent() {
 }
 // =========================================== Change Language ========================
 
-
 // =========================================== Product Data ============================
 let mehsul = [
   { id: 1, name_en: "Chocolate cake", name_az: "Şokoladlı tort", prize: 15, foto: "../image/Foto3.jpg" },
@@ -110,7 +108,6 @@ let mehsul = [
   { id: 16, name_en: "Cristmas cake(3)", name_az: "Milad tortu (3)", prize: 18, foto: "../image/Chiristmas3.jpg" },
 ];
 // =========================================== Product Data ============================
-
 
 // =========================================== Render Favorite Products ==================
 function renderFavorites() {
@@ -172,7 +169,6 @@ function renderFavorites() {
 }
 // =========================================== Render Favorite Products ==================
 
-
 // =========================================== Favorite toggle function ==================
 function toggleFavorite(productId, container, icon) {
   let storedFavorites = JSON.parse(localStorage.getItem("favorite")) || [];
@@ -187,17 +183,14 @@ function toggleFavorite(productId, container, icon) {
     storedFavorites.push(productToAdd);
     icon.style.color = "red";
   }
-
   localStorage.setItem("favorite", JSON.stringify(storedFavorites));
   iconColors[productId] = icon.style.color;
   localStorage.setItem("iconColors", JSON.stringify(iconColors));
-
   favorite = storedFavorites;
   basketFunc();
   favoriteH2();
 }
 // =========================================== Favorite toggle function ==================
-
 
 // =========================================== Toast notifications ========================
 function createToast(isRemove, messageText) {
@@ -255,14 +248,12 @@ function createToast(isRemove, messageText) {
 }
 // =========================================== Toast notifications ========================
 
-
 // =========================================== Basket counter ============================
 function basketFunc() {
   let basket = JSON.parse(localStorage.getItem("basket")) || [];
   sup.innerHTML = basket.length
 }
 // =========================================== Basket counter ============================
-
 
 // =========================================== Update favorite count =====================
 function favoriteH2() {
@@ -271,14 +262,13 @@ function favoriteH2() {
 }
 // =========================================== Update favorite count =====================
 
-
 // =========================================== Snow effect ==============================
 function createSnow() {
   let div = document.createElement("div");
   div.classList.add("snow");
   div.innerHTML = "❆";
   div.style.left = `${Math.random() * 90}vw`;
-  div.style.animationDuration = `${15}s`;
+  div.style.animationDuration = `${40}s`;
   div.style.fontSize = `${1.2}em`;
   div.style.color = "white";
 
@@ -294,7 +284,6 @@ for (let i = 0; i < snowNumber; i++) {
 }
 // =========================================== Snow effect ==============================
 
-
 // =========================================== Dark mode toggle =======================
 darkMood.addEventListener("click", () => {
   if (flag) {
@@ -308,7 +297,7 @@ darkMood.addEventListener("click", () => {
     change.style.backgroundColor = "black";
     change.style.color = "white";
     headerContainer.style.backgroundColor = "black";
-    body.style.backgroundColor = "rgb(35, 35, 35)";
+    body.style.background = "rgb(35, 35, 35)";
   } else {
     darkMood.style.backgroundColor = "#313B90";
     darkMood.style.color = "white";
@@ -323,12 +312,11 @@ darkMood.addEventListener("click", () => {
     change.style.backgroundColor = "#313B90";
     change.style.color = "white";
     headerContainer.style.backgroundColor = "#1A2255";
-    body.style.backgroundColor = "rgb(53, 53, 75)";
+    body.style.background = "radial-gradient(circle, #4e44b7 0, #0a2f5b 100%)";
   }
   flag = !flag;
 });
 // =========================================== Dark mode toggle =======================
-
 
 // =========================================== Scroll to top button ===================
 window.onscroll = function () {
@@ -360,5 +348,3 @@ document.addEventListener("DOMContentLoaded", () => {
   favoriteH2();
 });
 // =========================================== Init ===================================
-
-// console.log(localStorage.clear());

@@ -12,7 +12,6 @@ let flag = true;
 let snowNumber = 150;
 // =========================================== Variables ==============================
 
-
 // =========================================== Product Data ============================
 let mehsul = [
   { id: 1, name_en: "Chocolate cake", name_az: "Şokoladlı tort", prize: 15, foto: "../image/Foto3.jpg" },
@@ -33,7 +32,6 @@ let mehsul = [
   { id: 16, name_en: "Cristmas cake(3)", name_az: "Milad tortu (3)", prize: 18, foto: "../image/Chiristmas3.jpg" },
 ];
 // =========================================== Product Data ============================
-
 
 // =========================================== Creat element ==============================
 if (!localStorage.getItem("basket")) {
@@ -58,7 +56,7 @@ function productsfunc() {
     span.textContent = ` ${i18next.language == "az" ? mehsul[i].name_az : mehsul[i].name_en}`;
 
     let p = document.createElement("p");
-    p.innerHTML = `${i18next.language == "az" ? "Qiymət" : "Prize"}: ${mehsul[i].prize}`;
+    p.innerHTML = `${i18next.language == "az" ? "Qiymət" : "Prize"}: ${mehsul[i].prize} AZN`;
 
     let divButtons = document.createElement("div");
     divButtons.classList.add("buttons");
@@ -110,16 +108,13 @@ let basket = [];
 function sebetfunc(params) {
   const id = parseInt(params.getAttribute("data-id"));
   const product = mehsul.find((item) => item.id === id);
-
   basket = JSON.parse(localStorage.getItem("basket"));
-
   const existingProduct = basket.find((b) => b.id === product.id);
   if (!existingProduct) {
     basket.push({ ...product, count: 1 });
   } else {
     existingProduct.count += 1;
   }
-
   localStorage.setItem("basket", JSON.stringify(basket));
   basketFunc();
 }
@@ -130,7 +125,6 @@ function basketFunc() {
 }
 basketFunc();
 // =========================================== Favorite JS ============================
-
 
 // =========================================== Notification JS ========================
 function createToast(isIconClick, messageText = i18next.t("SuccessText")) {
@@ -256,7 +250,7 @@ function createSnow() {
   div.classList.add('snow');
   div.innerHTML = '❆';
   div.style.left = `${Math.random() * 90}vw`;
-  div.style.animationDuration = `${50}s`;
+  div.style.animationDuration = `${60}s`;
   div.style.fontSize = `${1.2}em`;
   div.style.color = "white";
   snow.appendChild(div);
@@ -273,6 +267,7 @@ for (let i = 0; i < snowNumber; i++) {
 
 // =========================================== DarkMood JS ============================
 darkMood.addEventListener('click', () => {
+  const productsbox = document.querySelectorAll(".productsbox")
   if (flag == true) {
     login.style.backgroundColor = "black";
     login.style.color = "white";
@@ -285,6 +280,10 @@ darkMood.addEventListener('click', () => {
     change.style.backgroundColor = "black";
     change.style.color = "white";
     footer.style.backgroundColor = "rgb(38, 38, 38)";
+    body.style.background = "#232323"
+    productsbox.forEach(item => {
+      item.style.backgroundColor = "#3A3B41"
+    })
     flag = false;
   } else if (flag == false) {
     login.style.backgroundColor = "#313B90";
@@ -298,7 +297,33 @@ darkMood.addEventListener('click', () => {
     change.style.color = "white"
     headerContainer.style.backgroundColor = "#1A2255";
     footer.style.backgroundColor = "#1A2255";
+    body.style.background = "radial-gradient(circle, #4e44b7 0, #0a2f5b 100%)";
+    productsbox.forEach(item => {
+      item.style.backgroundColor = "#051430"
+    })
     flag = true;
   };
 });
 // =========================================== DarkMood JS ============================
+
+// =========================================== Scroll JS ==============================
+window.onscroll = function () {
+  let goToTopButton = document.querySelector("#goToTopButton");
+
+  if (window.scrollY > 1000) {
+    goToTopButton.style.display = "flex";
+  } else {
+    goToTopButton.style.display = "none";
+  }
+};
+
+function goToTop() {
+  let currentScroll =
+    document.documentElement.scrollTop || document.body.scrollTop;
+
+  if (currentScroll > 0) {
+    window.scrollTo(0, currentScroll - 30);
+    setTimeout(goToTop, 10);
+  }
+}
+// =========================================== Scroll JS ==============================

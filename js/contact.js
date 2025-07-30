@@ -15,7 +15,7 @@ const footer = document.querySelector("footer");
 const login = document.querySelector(".login");
 let flag = true;
 let snowNumber = 150;
-// =========================================== Variables ===============================
+// =========================================== Variables ===============================  
 
 // =========================================== Snow JS ================================
 function createSnow() {
@@ -23,7 +23,7 @@ function createSnow() {
   div.classList.add("snow");
   div.innerHTML = "❆";
   div.style.left = `${Math.random() * 90}vw`;
-  div.style.animationDuration = `${20}s`;
+  div.style.animationDuration = `${40}s`;
   div.style.fontSize = `${1.2}em`;
   div.style.color = "white";
   snow.appendChild(div);

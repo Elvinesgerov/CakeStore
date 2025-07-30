@@ -10,7 +10,8 @@
 }
 
 body {
-    overflow-x: hidden
+    overflow-x: hidden;
+    background: radial-gradient(circle, #4e44b7 0, #0a2f5b 100%);
 }
 
 /* ============================================ Began WebSite ==================================== */
@@ -163,7 +164,7 @@ body {
     font-size: 1.8rem;
 }
 
-.login{
+.login {
     font-size: 19px !important;
 }
 
@@ -206,6 +207,74 @@ body {
     color: #33BCD0
 }
 
+.productscontainer {
+    margin-top: 50px;
+    margin-left: 50px;
+    display: flex;
+    gap: 75px;
+    flex-wrap: wrap;
+}
+
+.productsbox {
+    width: 300px;
+    min-height: 560px;
+    background-color: #051430;
+    border-radius: 13px;
+    padding: 15px 18px;
+    transition: 1.3s;
+    color: white;
+}
+
+.productsbox:hover {
+    transform: scale(1.1);
+    outline: 2px solid rgba(138, 43, 226, 0.69);
+}
+
+.productsbox img {
+    width: 100%;
+    height: 370px;
+}
+
+.productsbox h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.productsbox h3 span {
+    font-style: italic;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.productsbox p {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 40px;
+}
+
+.buttons button {
+    background: linear-gradient(75deg, blue, #6d036d);
+    border: 0;
+    border-radius: 0 20px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+    padding: 12px 26px;
+    margin-top: 20px;
+    width: 250px;
+    height: 55px;
+}
+
+.productsh1{
+    text-align: center;
+    font-size: 48px !important;
+    margin-top: 25px;
+}
 /* ============================================ Main CSS ========================================== */
 
 
@@ -233,7 +302,8 @@ footer {
     animation: slide 10s linear infinite forwards;
 }
 
-.sheet_icon a {
+.sheet_icon a,
+main h1 {
     text-decoration: none;
     color: white;
     background: repeating-linear-gradient(-45deg, #443B7E 0%, #745cf9 7.14%, lightblue 14.28%, #af40ff 21.4%, #af40ff 28.56%, blue 35.7%, #757bba 42.84%, #1A2255 50%);
@@ -337,10 +407,3 @@ footer {
 }
 
 /* ============================================ Footer CSS ======================================== */
-
-
-/* ============================================ Media Screen ====================================== */
-
-
-
-/* ============================================ Media Screen ====================================== */

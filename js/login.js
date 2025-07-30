@@ -9,6 +9,11 @@ const change = document.querySelector(".change")
 const body = document.querySelector('body');
 const footer = document.querySelector('footer');
 const login = document.querySelector(".login");
+const span = document.querySelectorAll(".spancontainer span");
+const overlay = document.querySelector(".overlay");
+const form = document.querySelector("#registerForm");
+const loginform = document.querySelector("#loginForm");
+const forgettext = document.querySelector(".forgettext")
 let flag = true;
 let snowNumber = 150;
 // =========================================== Variables ===============================
@@ -22,14 +27,12 @@ signInButton.addEventListener("click", () => {
  container.classList.remove("right-panel-active");
 });
 
-
 function handleCredentialResponse(response) {
  const data = jwt_decode(response.credential);
  console.log("Google user data:", data);
  alert(`Salam ${data.name}!\nEmail: ${data.email}`);
 }
 // =========================================== Register JS ================================
-
 
 // =========================================== Snow JS ================================
 function createSnow() {
@@ -66,6 +69,13 @@ darkMood.addEventListener('click', () => {
   change.style.backgroundColor = "black";
   change.style.color = "white";
   footer.style.backgroundColor = "rgb(38, 38, 38)";
+  span.forEach(item => {
+   item.style.backgroundColor = "rgb(38, 38, 38)"
+  });
+  overlay.style.backgroundColor = "black";
+  form.style.background = "rgb(38, 38, 38)";
+  loginform.style.background = "rgb(38, 38, 38)";
+  forgettext.style.color = "white";
   flag = false;
  } else if (flag == false) {
   login.style.backgroundColor = "#313B90";
@@ -75,11 +85,18 @@ darkMood.addEventListener('click', () => {
   darkMood.style.backgroundColor = "#313B90";
   darkMood.style.color = "white";
   darkMood.style.boxShadow = "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset";
-  change.style.backgroundColor = "#313B90"
+  change.style.backgroundColor = "#313B90";
   change.style.color = "white"
-  change.style.boxShadow = ""
+  change.style.boxShadow = "";
   headerContainer.style.backgroundColor = "#1A2255";
   footer.style.backgroundColor = "#1A2255";
+  span.forEach(item => {
+   item.style.backgroundColor = "#443B7E";
+  });
+  overlay.style.backgroundColor = "#443B7E";
+  form.style.background = "#fff"
+  loginform.style.background = "#fff"
+  forgettext.style.color = "#443B7E";
   flag = true;
  };
 });
@@ -198,7 +215,6 @@ function updateContent() {
  document.querySelector('[data-i18n="Login"]').textContent = i18next.t('Login');
 };
 // =========================================== Change Language ========================
-
 
 // =========================================== Change Body Color ========================
 function getRandomDarkColor() {

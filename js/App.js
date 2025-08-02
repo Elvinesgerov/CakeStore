@@ -3,7 +3,6 @@ const sup = document.querySelector("#sup");
 const header = document.querySelector("header");
 const main = document.querySelector("main");
 const footer = document.querySelector("footer");
-const snow = document.querySelector("#snow");
 const body = document.querySelector("body");
 const darkMood = document.querySelector(".darkmood");
 const login = document.querySelector(".login");
@@ -23,7 +22,6 @@ const array = ["../image/Foto2.jpg", "../image/Foto7.jpg", "../image/header.jpg"
 let compareFlag = true;
 let spanTwo;
 let flag = true;
-let snowNumber = 150;
 let index = 0;
 // =========================================== Variables ==============================
 
@@ -75,27 +73,6 @@ setInterval(function () {
   index = (index + 1) % array.length;
 }, 1500);
 // =========================================== Change Img =============================
-
-// =========================================== Snow JS ================================
-function createSnow() {
-  let div = document.createElement("div");
-  div.classList.add("snow");
-  div.innerHTML = "❆";
-  div.style.left = `${Math.random() * 90}vw`;
-  div.style.animationDuration = `${140}s`;
-  div.style.fontSize = `${1.4}em`;
-  div.style.color = "white";
-  snow.appendChild(div);
-  div.addEventListener("animationend", () => {
-    div.remove();
-    createSnow();
-  });
-}
-
-for (let i = 0; i < snowNumber; i++) {
-  setTimeout(createSnow, i * 200);
-}
-// =========================================== Snow JS ================================
 
 // =========================================== DarkMood JS ============================
 darkMood.addEventListener("click", () => {

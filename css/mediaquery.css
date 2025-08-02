@@ -254,17 +254,6 @@
   transform: translate3d(0%, 5%, -80px);
  }
 
- .carousel1 {
-  --_diameter: calc(var(--carousel-diameter) * 0.4);
-  --_item-width: calc(var(--carousel-item-width) * 0.4);
-  --_item-height: calc(var(--carousel-item-height) * 0.4);
- }
-
- .carousel1 .carousel-control-button {
-  --_width: calc(var(--carousel-control-button-width) * 0.8);
-  --_height: calc(var(--carousel-control-button-height) * 0.8);
- }
-
  .problems {
   height: auto;
   padding: 20px 15px;
@@ -478,6 +467,11 @@
 
  .toast .progress {
   height: 3px;
+ }
+
+ .mySwiper,
+ .container-box {
+  display: none !important;
  }
 }
 
@@ -935,6 +929,11 @@
  .toast .progress {
   height: 4px;
  }
+
+ .mySwiper,
+ .container-box {
+  display: none !important;
+ }
 }
 
 @media (min-width: 450px) and (max-width: 600px) {
@@ -1299,6 +1298,10 @@
   top: 10px !important;
   right: 15px !important;
   font-size: 28px !important;
+ }
+
+ .mySwiper {
+  display: none !important;
  }
 }
 

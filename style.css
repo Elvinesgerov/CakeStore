@@ -935,47 +935,47 @@ a {
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 15px;
-    margin: 50px auto;
+    min-height: 300px;
 }
 
 .slide1 {
-    background-image: url("https://t4.ftcdn.net/jpg/08/01/16/05/360_F_801160576_DNIyCOeas62VIomLTibsIGePLwg2TFVu.jpg");
+    background-image: url("./image/swiper1.jpg");
 }
 
 .slide2 {
-    background-image: url("https://i.pinimg.com/originals/53/81/ee/5381ee9f25bbcbcc9ec2da21b0613642.jpg");
+    background-image: url("./image/swiper2.jpg");
 }
 
 .slide3 {
-    background-image: url("https://mojo.generalmills.com/api/public/content/fYX6Lw1vQ0qhBLaxWAVpCA_webp_base.webp?v=fe9d2734&t=e724eca7b3c24a8aaa6e089ed9e611fd");
+    background-image: url("./image/swiper3.webp");
 }
 
 .slide4 {
-    background-image: url("https://media.istockphoto.com/id/1420144998/photo/birthday-cake-with-slice-removed-and-blue-birthday-candle.jpg?s=612x612&w=0&k=20&c=62n3mcQgNk_LR5N_DbWva2uUlGphXABbnSU_vXdk4Kc=");
+    background-image: url("./image/swiper4.jpg");
 }
 
 .slide5 {
-    background-image: url("https://funcakes.com/content/uploads/2022/07/Fun-Cakes-20220721-Sweet-16-Boys-02-600x400.webp");
+    background-image: url("./image/swiper5.webp");
 }
 
 .slide6 {
-    background-image: url("https://www.bestmummy.in/wp-content/uploads/2022/07/00000283-600x400.jpg");
+    background-image: url("./image/swiper6.jpg");
 }
 
 .slide7 {
-    background-image: url("https://mrtsbakery.com.au/cdn/shop/products/rose-birthday-cake_600x.jpg?v=1721787914");
+    background-image: url("./image/swiper7.webp");
 }
 
 .slide8 {
-    background-image: url("https://www.redtedart.com/wp-content/uploads/2015/02/Skylanders-Cake-for-the-perfect-Skylanders-Party.jpg");
+    background-image: url("./image/swiper8.jpg");
 }
 
 .slide9 {
-    background-image: url("https://www.isher.com.au/cdn/shop/files/cricket-cake-2-sc305-944.jpg?v=1712307965");
+    background-image: url("./image/swiper9.webp");
 }
 
 .slide10 {
-    background-image: url("https://t4.ftcdn.net/jpg/07/04/57/65/360_F_704576500_MWpONi6gvs1QvuxpLJfe02bUCEnPd1hA.jpg");
+    background-image: url("./image/swiper10.jpg");
 }
 
 .carousel {
